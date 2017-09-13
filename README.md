@@ -195,7 +195,7 @@
 #### Java 代码中
 
 <table>
-        <tr align="center">
+        <tr>
             <td>Java代码方法</td>
             <td>Java代码方法说明</td>
         </tr>
