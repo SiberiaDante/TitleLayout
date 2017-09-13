@@ -269,4 +269,3 @@
 
 [Android开发必备经典收藏集（整理中）]:http://www.jianshu.com/p/a49081da249a
 [Android开发常备工具整理中]:https://github.com/SiberiaDante/SiberiaDanteLib
-[博客园:http://www.cnblogs.com/shen-hua/]:http://www.cnblogs.com/shen-hua/
