@@ -1,8 +1,17 @@
 # TitleLayout
 多功能、通用的、可在布局或者使用Java代码实现标题栏；支持沉浸式状态栏，支持左侧返回按钮（不需要手动实现页面返回），左侧支持图片+文字、图片、文字；右侧支持图片、文字等。
 
+## 堆码不易，star支持，万分感谢
+#### 欢迎关注：
+* [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
+* [博客园:http://www.cnblogs.com/shen-hua/]
+* [email:994537867@qq.com] [siberiadante@gmail.com]
+### [Android开发必备经典收藏集（整理中）]
+### [Android开发常备工具整理中]
 ## 依赖：
 
+##Demo
+![图片](/images/show_title.jpeg)
 ## 在布局中使用：
 ```
 <com.siberiadante.titlelayoutlib.TitleBarLayout
@@ -65,7 +74,7 @@
 ## 其他属性说明
 #### xml中的属性：
 <table>
-        <tr align="center">
+        <tr>
             <td>xml属性</td>
             <td>属性说明</td>
         </tr>
@@ -255,3 +264,9 @@
             <td>设置左侧文字和按钮是否为返回按钮</td>
         </tr>
 </table>
+
+
+
+[Android开发必备经典收藏集（整理中）]:http://www.jianshu.com/p/a49081da249a
+[Android开发常备工具整理中]:https://github.com/SiberiaDante/SiberiaDanteLib
+[博客园:http://www.cnblogs.com/shen-hua/]:http://www.cnblogs.com/shen-hua/
