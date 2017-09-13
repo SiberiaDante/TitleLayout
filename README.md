@@ -9,6 +9,23 @@
 ### [Android开发必备经典收藏集（整理中）]
 ### [Android开发常备工具整理中]
 ## 依赖：
+* Step 1. Add the JitPack repository to your build file
+    ```
+    	allprojects {
+    		repositories {
+    			...
+    			maven { url 'https://jitpack.io' }
+    		}
+    	}
+    ```
+
+* Step 2. Add the dependency
+    ```
+        dependencies {
+                compile 'com.github.SiberiaDante:TitleLayout:v1.0.1'
+        }
+
+    ```
 
 ## 图片有点虚，请见谅
 ![图片](/images/show_title.jpeg)
