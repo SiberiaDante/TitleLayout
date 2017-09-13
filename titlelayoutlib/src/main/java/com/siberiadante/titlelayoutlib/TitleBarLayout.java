@@ -22,12 +22,12 @@ import com.siberiadante.titlelayoutlib.utils.TransitionTools;
 
 /**
  * @Created SiberiaDante
- * @Describe： 可在布局中设置各种资源
- * 完善中：
- * 1、测量左右View的宽度，依次来衡量标题位置
- * 2、可设置View大小
- * 3、增加动态控制View等
- * 4、支持设置沉浸式状态栏
+ * @Describe： 使用说明<br/><a href="https://github.com/SiberiaDante/TitleLayout">GitHub</a>
+ * 多功能、通用的、可在布局或者使用Java代码实现标题栏；
+ * 支持沉浸式状态栏；
+ * 支持左侧返回按钮不需要手动实现页面返回；
+ * 支持左侧按钮，中间标题，右边按钮点击
+ * 左侧支持图片+文字、单独图片、单独文字；右侧支持单独图片、单独文字等。
  * @Time: 2017/9/12
  * @UpDate:
  * @Email: 994537867@qq.com

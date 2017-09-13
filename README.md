@@ -94,11 +94,11 @@
         });
 ```
 ## 重点说明：
-* 若左侧文字或者按钮为返回键，只需要布局中使用
+* 若左侧文字或者按钮为返回键，只需要布局中使用如下代码即可：
     ```
     dante:d_is_back_view="true"
     ```
-    即可；或者Java代码中
+    或者Java代码中
     ```
     titleLayout.setIsLeftBackView(true)
     ```
