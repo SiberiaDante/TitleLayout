@@ -176,17 +176,7 @@ public class TitleBarLayout extends RelativeLayout {
     }
 
     private void initData() {
-        if (mIsImmersiveStateBar) {
-            int layoutHeight = mLayoutBarHeight + mStatusBarHeight;
-            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, layoutHeight);
-            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
-            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
-            mRlLayout.setPadding(0, mStatusBarHeight, 0, 0);
-        } else {
-            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mLayoutBarHeight);
-            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
-            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
-        }
+        initLayoutHeight();
         mRlLayout.setBackgroundColor(mLayoutBackground);
 
         //左边图标
@@ -279,6 +269,20 @@ public class TitleBarLayout extends RelativeLayout {
             ViewGroup.LayoutParams mViewLineLayoutParams = mViewLine.getLayoutParams();
             mViewLineLayoutParams.height = mLineHeight;
             mViewLine.setLayoutParams(mViewLineLayoutParams);
+        }
+    }
+
+    private void initLayoutHeight() {
+        if (mIsImmersiveStateBar) {
+            int layoutHeight = mLayoutBarHeight + mStatusBarHeight;
+            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, layoutHeight);
+            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
+            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
+            mRlLayout.setPadding(0, mStatusBarHeight, 0, 0);
+        } else {
+            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mLayoutBarHeight);
+            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
+            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
         }
     }
 
@@ -458,6 +462,16 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setIsLeftBackView(boolean isLeftBackView) {
         mIsBackView = isLeftBackView;
+    }
+
+    /**
+     * 1.0.1之后增加动态设置是否为沉浸式状态栏
+     *
+     * @param isImmersiveStateBar
+     */
+    public void setIsImmersiveStateBar(boolean isImmersiveStateBar) {
+        mIsImmersiveStateBar = isImmersiveStateBar;
+        initLayoutHeight();
     }
 
     @Override

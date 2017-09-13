@@ -84,6 +84,14 @@
         });
         //设置Titlesize
         titleBarLayout.setTitleSize(30);
+   //一键设置标题样式
+        titleBarLayout.setTitleStyle("我是标题", 18, ContextCompat.getColor(this, R.color.action_sheet_blue));
+        titleBarLayout.setRightImageClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LogUtil.d("右边图片被点击了");
+            }
+        });
 ```
 ## 重点说明：
 * 若左侧文字或者按钮为返回键，只需要布局中使用
