@@ -171,6 +171,22 @@
             <td>后续完善该属性</td>
         </tr>
         <tr>
+            <td>d_subtitle_text</td>
+            <td>中间副标题文字资源</td>
+        </tr>
+        <tr>
+            <td>d_subtitle_size</td>
+            <td>中间副标题文字大小（默认12SP）</td>
+        </tr>
+        <tr>
+            <td>d_subtitle_color</td>
+            <td>中间副标题文字颜色（默认黑色）</td>
+        </tr>
+        <tr>
+            <td>d_subtitle_style</td>
+            <td>后续完善该属性</td>
+        </tr>
+        <tr>
             <td>d_right_text</td>
             <td>右边文字资源</td>
         </tr>
@@ -260,6 +276,22 @@
             <td>设置标题资源、文字大小、文字颜色</td>
         </tr>
         <tr>
+            <td>setSubTitle(CharSequence title)</td>
+            <td>设置副标题资源</td>
+        </tr>
+        <tr>
+            <td>setSubTitleSize(int titleSize)</td>
+            <td>设置副标题字体大小</td>
+        </tr>
+        <tr>
+            <td>setSubTitleColor(int titleColor)</td>
+            <td>设置副标题字体颜色</td>
+        </tr>
+        <tr>
+            <td>setSubTitleStyle(String title, int titleSize, int titleColor)</td>
+            <td>设置副标题资源、文字大小、文字颜色</td>
+        </tr>
+        <tr>
             <td>setLeftText(String leftText)</td>
             <td>设置左侧文字</td>
         </tr>
@@ -309,6 +341,19 @@
         </tr>
 </table>
 
+
+## 更新优化说明
+* v1.0.2
+    * 增加支持副标题功能
+    * 优化标题过长显示问题
+* v1.0.1
+    * 多功能、通用的、可在布局或者使用Java代码实现标题栏；
+    * 支持沉浸式状态栏；
+    * 支持左侧返回按钮不需要手动实现页面返回；
+    * 支持左侧按钮，中间标题，右边按钮点击
+    * 左侧支持图片+文字、单独图片、单独文字；右侧支持单独图片、单独文字等。
+    * 多功能、通用的、可在布局或者使用Java代码实现标题栏；
+    * 支持沉浸式状态栏，支持左侧返回按钮（不需要手动实现页面返回），左侧支持图片+文字、图片、文字；右侧支持图片、文字等。
 
 
 [Android开发必备经典收藏集（整理中）]:http://www.jianshu.com/p/a49081da249a

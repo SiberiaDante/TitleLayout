@@ -8,10 +8,12 @@ import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -50,6 +52,10 @@ public class TitleBarLayout extends RelativeLayout {
     private float mTitleSize = TransitionTools.dip2px(18);
     private int mTitleColor = Color.BLACK;
 
+    private String mSubTitle = "";
+    private float mSubTitleSize = TransitionTools.dip2px(12);
+    private int mSubTitleColor = Color.GRAY;
+
     private int mRightImage;
     private int mRightImageWidth = TransitionTools.dip2px(30);
     private int mRightImagePaddingEnd = TransitionTools.dip2px(10);
@@ -72,10 +78,12 @@ public class TitleBarLayout extends RelativeLayout {
     private ImageView mIvLeft;
     private TextView mTvLeft;
     private TextView mTvTitle;
+    private TextView mTvSubTitle;
     private ImageView mIvRight;
     private TextView mTvRight;
     private View mViewLine;
     private RelativeLayout mRlLayout, mRlLeft, mRlRight;
+    private LinearLayout mLLCenter;
 
     private int mStatusBarHeight = 20;
 
@@ -128,6 +136,13 @@ public class TitleBarLayout extends RelativeLayout {
         mTitleSize = attributes.getDimension(R.styleable.TitleBarLayout_d_title_size, mTitleSize);
         mTitleColor = attributes.getColor(R.styleable.TitleBarLayout_d_title_color, mTitleColor);
 
+         /*
+         副标题
+         */
+        mSubTitle = attributes.getString(R.styleable.TitleBarLayout_d_subtitle_text);
+        mSubTitleSize = attributes.getDimension(R.styleable.TitleBarLayout_d_subtitle_size, mSubTitleSize);
+        mSubTitleColor = attributes.getColor(R.styleable.TitleBarLayout_d_subtitle_color, mSubTitleColor);
+
         /*
         右侧图片、图片大小、图片左边距
          */
@@ -167,9 +182,11 @@ public class TitleBarLayout extends RelativeLayout {
         mRlLayout = ((RelativeLayout) inflate.findViewById(R.id.rl_title_bar_height));
         mRlLeft = ((RelativeLayout) inflate.findViewById(R.id.rl_left));
         mRlRight = ((RelativeLayout) inflate.findViewById(R.id.rl_right));
+        mLLCenter = ((LinearLayout) inflate.findViewById(R.id.ll_center));
         mIvLeft = ((ImageView) inflate.findViewById(R.id.iv_left));
         mTvLeft = ((TextView) inflate.findViewById(R.id.tv_left));
         mTvTitle = ((TextView) inflate.findViewById(R.id.tv_title));
+        mTvSubTitle = ((TextView) inflate.findViewById(R.id.tv_sub_title));
         mIvRight = ((ImageView) inflate.findViewById(R.id.iv_right));
         mTvRight = ((TextView) inflate.findViewById(R.id.tv_right));
         mViewLine = inflate.findViewById(R.id.view_line);
@@ -217,6 +234,19 @@ public class TitleBarLayout extends RelativeLayout {
             mTvTitle.setText(mTitle);
             mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
             mTvTitle.setTextColor(mTitleColor);
+        }
+
+        //副标题
+        if (StringUtil.isEmpty(mSubTitle)) {
+            mTvSubTitle.setVisibility(GONE);
+        } else {
+            mTvSubTitle.setVisibility(VISIBLE);
+            mTvSubTitle.setText(mSubTitle);
+            mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
+            mTvSubTitle.setTextColor(mSubTitleColor);
+
+            mTvSubTitle.setGravity(Gravity.TOP|Gravity.CENTER);
+            mTvTitle.setGravity(Gravity.BOTTOM|Gravity.CENTER);
         }
 
         //右边图标
@@ -338,6 +368,67 @@ public class TitleBarLayout extends RelativeLayout {
         }
     }
 
+    /**
+     * 设置副title
+     *
+     * @param title
+     */
+    public void setSubTitle(CharSequence title) {
+        if (!StringUtil.isEmpty(title.toString())) {
+            mTvSubTitle.setVisibility(VISIBLE);
+            mTvSubTitle.setText(title);
+        }
+    }
+
+    /**
+     * 设置副标题大小
+     *
+     * @param titleSize
+     */
+    public void setSubTitleSize(int titleSize) {
+        if (titleSize != 0) {
+            mTvSubTitle.setVisibility(VISIBLE);
+            mTvSubTitle.setTextSize(titleSize);
+        }
+    }
+
+    /**
+     * 设置副标题颜色
+     *
+     * @param titleColor
+     */
+    public void setSubTitleColor(int titleColor) {
+        if (titleColor != 0) {
+            mTvSubTitle.setVisibility(VISIBLE);
+            mTvSubTitle.setTextColor(titleColor);
+        }
+    }
+
+    /**
+     * 一键设置副标题样式、资源等
+     *
+     * @param title
+     * @param titleSize
+     * @param titleColor
+     */
+    public void setSubTitleStyle(String title, int titleSize, int titleColor) {
+        if (!StringUtil.isEmpty(title)) {
+            mTvSubTitle.setVisibility(VISIBLE);
+            mTvSubTitle.setText(title);
+        }
+        if (titleSize != 0) {
+            mTvSubTitle.setTextSize(titleSize);
+        }
+        if (titleColor != 0) {
+            mTvSubTitle.setTextColor(titleColor);
+        }
+    }
+
+    /**
+     * 设置左边文字内容
+     *
+     * @param leftText
+     */
     public void setLeftText(String leftText) {
         if (!StringUtil.isEmpty(leftText)) {
             mTvLeft.setText(leftText);
@@ -428,6 +519,15 @@ public class TitleBarLayout extends RelativeLayout {
     }
 
     /**
+     * 副标题点击事件
+     *
+     * @param listener
+     */
+    public void setSubTitleClickListener(OnClickListener listener) {
+        mTvSubTitle.setOnClickListener(listener);
+    }
+
+    /**
      * 左边按钮点击事件
      *
      * @param listener
@@ -480,10 +580,9 @@ public class TitleBarLayout extends RelativeLayout {
         int mRlLeftMeasuredWidth = mRlLeft.getMeasuredWidth();
         int mRlRightMeasuredWidth = mRlRight.getMeasuredWidth();
         if (mRlLeftMeasuredWidth > mRlRightMeasuredWidth) {
-            mTvTitle.setPadding(mRlLeftMeasuredWidth, 0, mRlLeftMeasuredWidth, 0);
+            mLLCenter.setPadding(mRlLeftMeasuredWidth, 0, mRlLeftMeasuredWidth, 0);
         } else {
-            mTvTitle.setPadding(mRlRightMeasuredWidth, 0, mRlRightMeasuredWidth, 0);
-
+            mLLCenter.setPadding(mRlRightMeasuredWidth, 0, mRlRightMeasuredWidth, 0);
         }
 
     }
