@@ -22,7 +22,7 @@
 * Step 2. Add the dependency
     ```
         dependencies {
-                compile 'com.github.SiberiaDante:TitleLayout:v1.0.1'
+                compile 'com.github.SiberiaDante:TitleLayout:v1.0.2'
         }
 
     ```
@@ -42,7 +42,7 @@
     	<dependency>
     	    <groupId>com.github.SiberiaDante</groupId>
     	    <artifactId>TitleLayout</artifactId>
-    	    <version>v1.0.1</version>
+    	    <version>v1.0.2</version>
     	</dependency>
 
     ```
