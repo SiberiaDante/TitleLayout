@@ -22,7 +22,7 @@
 * Step 2. Add the dependency
     ```
         dependencies {
-                compile 'com.github.SiberiaDante:TitleLayout:v1.0.2'
+                compile 'com.github.SiberiaDante:TitleLayout:v1.0.3'
         }
 
     ```
