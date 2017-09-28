@@ -2,6 +2,9 @@ package com.siberiadante.titlelayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.siberiadante.titlelayoutlib.TitleBarLayout;
+import com.siberiadante.titlelayoutlib.TitleLayoutLib;
 import com.siberiadante.titlelayoutlib.utils.ScreenUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,5 +31,7 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d("MainActivity","右边图片被点击了");
 //            }
 //        });
+        final TitleBarLayout titleBarLayout = (TitleBarLayout) findViewById(R.id.title_layout_four);
+        titleBarLayout.setIsLeftBackView(true);
     }
 }

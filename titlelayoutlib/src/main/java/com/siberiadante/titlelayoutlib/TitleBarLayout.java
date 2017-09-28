@@ -245,8 +245,8 @@ public class TitleBarLayout extends RelativeLayout {
             mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
             mTvSubTitle.setTextColor(mSubTitleColor);
 
-            mTvSubTitle.setGravity(Gravity.TOP|Gravity.CENTER);
-            mTvTitle.setGravity(Gravity.BOTTOM|Gravity.CENTER);
+            mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
+            mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
         }
 
         //右边图标
@@ -278,7 +278,7 @@ public class TitleBarLayout extends RelativeLayout {
          * 如果是返回键，则点击实现页面返回，否则获取点击事件{@code setLeftClickListener()}
          */
         if (mIsBackView) {
-            mTvLeft.setOnClickListener(new OnClickListener() {
+            mIvLeft.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     ((Activity) mContext).finish();
@@ -562,6 +562,23 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setIsLeftBackView(boolean isLeftBackView) {
         mIsBackView = isLeftBackView;
+        if (mLeftImage != 0) {
+            mIvLeft.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((Activity) mContext).finish();
+                }
+            });
+        }
+        if (StringUtil.isEmpty(mLeftText)) {
+            mTvLeft.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((Activity) mContext).finish();
+
+                }
+            });
+        }
     }
 
     /**
