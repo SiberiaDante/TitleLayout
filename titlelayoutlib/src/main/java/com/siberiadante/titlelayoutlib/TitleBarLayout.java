@@ -562,6 +562,9 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setIsLeftBackView(boolean isLeftBackView) {
         mIsBackView = isLeftBackView;
+        if (!mIsBackView) {
+            return;
+        }
         if (mLeftImage != 0) {
             mIvLeft.setOnClickListener(new OnClickListener() {
                 @Override
