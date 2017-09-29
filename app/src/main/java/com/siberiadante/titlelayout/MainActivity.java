@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d("MainActivity","右边图片被点击了");
 //            }
 //        });
+        final TitleBarLayout titleBarLayout2 = (TitleBarLayout) findViewById(R.id.title_layout_two);
+        titleBarLayout2.setTitle("Java代码设置新的标题");
+
         final TitleBarLayout titleBarLayout = (TitleBarLayout) findViewById(R.id.title_layout_four);
         titleBarLayout.setIsLeftBackView(true);
     }

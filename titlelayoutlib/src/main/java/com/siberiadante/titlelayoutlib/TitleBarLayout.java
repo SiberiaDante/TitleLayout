@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -47,14 +48,17 @@ public class TitleBarLayout extends RelativeLayout {
     private int mLeftTextSize = TransitionTools.dip2px(16);
     private int mLeftTextColor = Color.BLACK;
     private int mLeftTextPaddingStart = TransitionTools.dip2px(10);
+    private int mLeftTextStyle = Typeface.NORMAL;
 
     private String mTitle = "";
     private float mTitleSize = TransitionTools.dip2px(18);
     private int mTitleColor = Color.BLACK;
+    private int mTitleStyle = Typeface.NORMAL;
 
     private String mSubTitle = "";
     private float mSubTitleSize = TransitionTools.dip2px(12);
     private int mSubTitleColor = Color.GRAY;
+    private int mSubTitleStyle = Typeface.NORMAL;
 
     private int mRightImage;
     private int mRightImageWidth = TransitionTools.dip2px(30);
@@ -64,6 +68,7 @@ public class TitleBarLayout extends RelativeLayout {
     private float mRightTextSize = TransitionTools.dip2px(16);
     private int mRightTextColor = Color.BLACK;
     private int mRightTextPaddingEnd = TransitionTools.dip2px(10);
+    private int mRightTextStyle = Typeface.NORMAL;
 
     private int mLineHeight = 1;
 
@@ -128,6 +133,7 @@ public class TitleBarLayout extends RelativeLayout {
         mLeftTextSize = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_text_size, mLeftTextSize);
         mLeftTextPaddingStart = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_text_padding_start, mLeftTextPaddingStart);
         mLeftTextColor = attributes.getColor(R.styleable.TitleBarLayout_d_left_text_color, mLeftTextColor);
+        mLeftTextStyle = attributes.getInt(R.styleable.TitleBarLayout_d_left_text_style, mLeftTextStyle);
 
         /*
         标题文字、字体大小、字体颜色
@@ -135,6 +141,7 @@ public class TitleBarLayout extends RelativeLayout {
         mTitle = attributes.getString(R.styleable.TitleBarLayout_d_title_text);
         mTitleSize = attributes.getDimension(R.styleable.TitleBarLayout_d_title_size, mTitleSize);
         mTitleColor = attributes.getColor(R.styleable.TitleBarLayout_d_title_color, mTitleColor);
+        mTitleStyle = attributes.getInt(R.styleable.TitleBarLayout_d_title_style, mTitleStyle);
 
          /*
          副标题
@@ -142,6 +149,7 @@ public class TitleBarLayout extends RelativeLayout {
         mSubTitle = attributes.getString(R.styleable.TitleBarLayout_d_subtitle_text);
         mSubTitleSize = attributes.getDimension(R.styleable.TitleBarLayout_d_subtitle_size, mSubTitleSize);
         mSubTitleColor = attributes.getColor(R.styleable.TitleBarLayout_d_subtitle_color, mSubTitleColor);
+        mSubTitleStyle = attributes.getInt(R.styleable.TitleBarLayout_d_subtitle_style, mSubTitleStyle);
 
         /*
         右侧图片、图片大小、图片左边距
@@ -149,7 +157,6 @@ public class TitleBarLayout extends RelativeLayout {
         mRightImage = attributes.getResourceId(R.styleable.TitleBarLayout_d_right_image, 0);
         mRightImageWidth = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_image_width, mRightImageWidth);
         mRightImagePaddingEnd = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_image_padding_end, mRightImagePaddingEnd);
-
         /*
         右侧文字、字体大小、字体颜色、字体左边距
          */
@@ -157,6 +164,7 @@ public class TitleBarLayout extends RelativeLayout {
         mRightTextSize = attributes.getDimension(R.styleable.TitleBarLayout_d_right_text_size, mRightTextSize);
         mRightTextPaddingEnd = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_text_padding_end, mRightTextPaddingEnd);
         mRightTextColor = attributes.getColor(R.styleable.TitleBarLayout_d_right_text_color, mRightTextColor);
+        mRightTextStyle = attributes.getInt(R.styleable.TitleBarLayout_d_right_text_style, mRightTextStyle);
 
         /*
         底部横线背景、高度
@@ -192,19 +200,386 @@ public class TitleBarLayout extends RelativeLayout {
         mViewLine = inflate.findViewById(R.id.view_line);
     }
 
+//    private void initData() {
+//        initLayoutHeight();
+//        mRlLayout.setBackgroundColor(mLayoutBackground);
+//
+//        //左边图标
+//        if (mLeftImage != 0) {
+//            mIvLeft.setVisibility(VISIBLE);
+//            mIvLeft.setImageResource(mLeftImage);
+//            //image size
+//            ViewGroup.LayoutParams mIvLeftLayoutParams = mIvLeft.getLayoutParams();
+//            mIvLeftLayoutParams.width = mLeftImageWidth;
+//            mIvLeft.setLayoutParams(mIvLeftLayoutParams);
+//            mIvLeft.setPadding(mLeftImagePaddingStart, 0, 0, 0);
+//            mLeftTotalWidth += mLeftImageWidth;
+//            mLeftTotalWidth += mLeftImagePaddingStart;
+//
+//        } else {
+//            mIvLeft.setVisibility(GONE);
+//        }
+//
+//
+//        //左边文字
+//        if (StringUtil.isEmpty(mLeftText)) {
+//            mTvLeft.setVisibility(GONE);
+//        } else {
+//            mTvLeft.setVisibility(VISIBLE);
+//            mTvLeft.setText(mLeftText);
+//            mTvLeft.setTextSize(TransitionTools.px2sp(mLeftTextSize));
+//            mTvLeft.setTextColor(mLeftTextColor);
+//            mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
+//
+//            mLeftTotalWidth += mLeftTextPaddingStart;
+//        }
+//
+//        //标题
+//        settingTitle();
+////        if (StringUtil.isEmpty(mTitle)) {
+////            mTvTitle.setVisibility(INVISIBLE);
+////        } else {
+////            mTvTitle.setVisibility(VISIBLE);
+////            mTvTitle.setText(mTitle);
+////            mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
+////            mTvTitle.setTextColor(mTitleColor);
+////        }
+//
+//        //副标题
+//        if (StringUtil.isEmpty(mSubTitle)) {
+//            mTvSubTitle.setVisibility(GONE);
+//        } else {
+//            mTvSubTitle.setVisibility(VISIBLE);
+//            mTvSubTitle.setText(mSubTitle);
+//            mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
+//            mTvSubTitle.setTextColor(mSubTitleColor);
+//
+//            mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
+//            mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
+//        }
+//
+//        //右边图标
+//        if (mRightImage != 0) {
+//            mIvRight.setVisibility(VISIBLE);
+//            mTvRight.setVisibility(GONE);
+//            mIvRight.setImageResource(mRightImage);
+//            ViewGroup.LayoutParams mIvRightLayoutParams = mIvRight.getLayoutParams();
+//            mIvRightLayoutParams.width = mRightImageWidth;
+//            mIvRight.setLayoutParams(mIvRightLayoutParams);
+//            mIvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
+//        } else {
+//            mIvRight.setVisibility(GONE);
+//        }
+//
+//        //右边文字
+//        if (StringUtil.isEmpty(mRightText)) {
+//            mTvRight.setVisibility(GONE);
+//        } else {
+//            mTvRight.setVisibility(VISIBLE);
+//            mIvRight.setVisibility(GONE);
+//            mTvRight.setText(mRightText);
+//            mTvRight.setTextSize(TransitionTools.px2sp(mRightTextSize));
+//            mTvRight.setTextColor(mRightTextColor);
+//            mTvRight.setPadding(0, 0, mRightTextPaddingEnd, 0);
+//        }
+//
+//        /**
+//         * 如果是返回键，则点击实现页面返回，否则获取点击事件{@code setLeftClickListener()}
+//         */
+//        if (mIsBackView) {
+//            mIvLeft.setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    ((Activity) mContext).finish();
+//                }
+//            });
+//            mTvLeft.setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    ((Activity) mContext).finish();
+//                }
+//            });
+//        }
+//
+//        //横线
+//        mViewLine.setBackgroundColor(mLineBackground);
+//        //横线高度
+//        if (mLineHeight != 0) {
+//            ViewGroup.LayoutParams mViewLineLayoutParams = mViewLine.getLayoutParams();
+//            mViewLineLayoutParams.height = mLineHeight;
+//            mViewLine.setLayoutParams(mViewLineLayoutParams);
+//        }
+//    }
+//
+//    private void settingTitle() {
+//        if (StringUtil.isEmpty(mTitle)) {
+//            mTvTitle.setVisibility(INVISIBLE);
+//        } else {
+//            mTvTitle.setVisibility(VISIBLE);
+//            mTvTitle.setText(mTitle);
+//            mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
+//            mTvTitle.setTextColor(mTitleColor);
+//        }
+//    }
+//
+//    private void initLayoutHeight() {
+//        if (mIsImmersiveStateBar) {
+//            int layoutHeight = mLayoutBarHeight + mStatusBarHeight;
+//            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, layoutHeight);
+//            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
+//            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
+//            mRlLayout.setPadding(0, mStatusBarHeight, 0, 0);
+//        } else {
+//            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mLayoutBarHeight);
+//            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
+//            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
+//        }
+//    }
+//
+//    /**
+//     * 设置title
+//     *
+//     * @param title
+//     */
+//    public void setTitle(String title) {
+////        if (!StringUtil.isEmpty(title.toString())) {
+////            mTvTitle.setText(title);
+////        }
+//        this.mTitle = title;
+//        settingTitle();
+//    }
+//
+//    /**
+//     * 设置标题大小
+//     *
+//     * @param titleSize
+//     */
+//    public void setTitleSize(int titleSize) {
+//        if (titleSize != 0) {
+//            mTvTitle.setTextSize(titleSize);
+//        }
+//    }
+//
+//    /**
+//     * 设置标题颜色
+//     *
+//     * @param titleColor
+//     */
+//    public void setTitleColor(int titleColor) {
+//        if (titleColor != 0) {
+//            mTvTitle.setTextColor(titleColor);
+//        }
+//    }
+//
+//    /**
+//     * 一键设置标题样式、资源等
+//     *
+//     * @param title
+//     * @param titleSize
+//     * @param titleColor
+//     */
+//    public void setTitleStyle(String title, int titleSize, int titleColor) {
+//        if (!StringUtil.isEmpty(title)) {
+//            mTvTitle.setText(title);
+//        }
+//        if (titleSize != 0) {
+//            mTvTitle.setTextSize(titleSize);
+//        }
+//        if (titleColor != 0) {
+//            mTvTitle.setTextColor(titleColor);
+//        }
+//    }
+//
+//    /**
+//     * 设置副title
+//     *
+//     * @param title
+//     */
+//    public void setSubTitle(CharSequence title) {
+//        if (!StringUtil.isEmpty(title.toString())) {
+//            mTvSubTitle.setVisibility(VISIBLE);
+//            mTvSubTitle.setText(title);
+//        }
+//    }
+//
+//    /**
+//     * 设置副标题大小
+//     *
+//     * @param titleSize
+//     */
+//    public void setSubTitleSize(int titleSize) {
+//        if (titleSize != 0) {
+//            mTvSubTitle.setVisibility(VISIBLE);
+//            mTvSubTitle.setTextSize(titleSize);
+//        }
+//    }
+//
+//    /**
+//     * 设置副标题颜色
+//     *
+//     * @param titleColor
+//     */
+//    public void setSubTitleColor(int titleColor) {
+//        if (titleColor != 0) {
+//            mTvSubTitle.setVisibility(VISIBLE);
+//            mTvSubTitle.setTextColor(titleColor);
+//        }
+//    }
+//
+//    /**
+//     * 一键设置副标题样式、资源等
+//     *
+//     * @param title
+//     * @param titleSize
+//     * @param titleColor
+//     */
+//    public void setSubTitleStyle(String title, int titleSize, int titleColor) {
+//        if (!StringUtil.isEmpty(title)) {
+//            mTvSubTitle.setVisibility(VISIBLE);
+//            mTvSubTitle.setText(title);
+//        }
+//        if (titleSize != 0) {
+//            mTvSubTitle.setTextSize(titleSize);
+//        }
+//        if (titleColor != 0) {
+//            mTvSubTitle.setTextColor(titleColor);
+//        }
+//    }
+//
+//    /**
+//     * 设置左边文字内容
+//     *
+//     * @param leftText
+//     */
+//    public void setLeftText(String leftText) {
+//        if (!StringUtil.isEmpty(leftText)) {
+//            mTvLeft.setText(leftText);
+//        }
+//    }
+//
+//    /**
+//     * 设置左边文字大小
+//     *
+//     * @param leftTextSize
+//     */
+//    public void setLeftTextSize(int leftTextSize) {
+//        if (leftTextSize != 0) {
+//            mTvLeft.setTextSize(leftTextSize);
+//        }
+//    }
+//
+//    /**
+//     * 设置左边文字颜色
+//     *
+//     * @param leftTextColor
+//     */
+//    public void setLeftTextColor(int leftTextColor) {
+//        if (leftTextColor != 0) {
+//            mTvLeft.setTextColor(leftTextColor);
+//        }
+//    }
+//
+//    /**
+//     * 一键设置左侧文字样式、资源等
+//     *
+//     * @param leftText
+//     * @param leftTextSize
+//     * @param leftTextColor
+//     */
+//    public void setLeftStyle(String leftText, int leftTextSize, int leftTextColor) {
+//        if (!StringUtil.isEmpty(leftText)) {
+//            mTvTitle.setText(leftText);
+//        }
+//        if (leftTextSize != 0) {
+//            mTvTitle.setTextSize(leftTextSize);
+//        }
+//        if (leftTextColor != 0) {
+//            mTvTitle.setTextColor(leftTextColor);
+//        }
+//    }
+//
+//    /**
+//     * 设置右侧文字
+//     *
+//     * @param rightText
+//     */
+//    public void setRightText(String rightText) {
+//        if (!StringUtil.isEmpty(rightText)) {
+//            mTvRight.setText(rightText);
+//        }
+//    }
+//
+//    /**
+//     * 设置右侧文字大小
+//     *
+//     * @param rightTextSize
+//     */
+//    public void setRightTextSize(int rightTextSize) {
+//        if (rightTextSize != 0) {
+//            mTvRight.setTextSize(rightTextSize);
+//        }
+//    }
+//
+//    /**
+//     * 设置右侧文字颜色
+//     *
+//     * @param rightTextColor
+//     */
+//    public void setRightTextColor(int rightTextColor) {
+//        if (rightTextColor != 0) {
+//            mTvRight.setTextColor(rightTextColor);
+//        }
+//    }
+
     private void initData() {
         initLayoutHeight();
         mRlLayout.setBackgroundColor(mLayoutBackground);
 
         //左边图标
+        settingLeftImage();
+
+        //左边文字
+        settingLeftText();
+
+        //标题
+        settingTitle();
+        //副标题
+        settingSubTitle();
+
+        //右边图标
+        settingRightImage();
+
+        //右边文字
+        settingRightText();
+
+        /**
+         * 如果是返回键，则点击实现页面返回，否则获取点击事件{@code setLeftClickListener()}
+         */
+        settingBackView();
+
+        //横线
+        settingLine();
+    }
+
+    private void settingLine() {
+        mViewLine.setBackgroundColor(mLineBackground);
+        //横线高度
+        if (mLineHeight != 0) {
+            ViewGroup.LayoutParams mViewLineLayoutParams = mViewLine.getLayoutParams();
+            mViewLineLayoutParams.height = mLineHeight;
+            mViewLine.setLayoutParams(mViewLineLayoutParams);
+        }
+    }
+
+    private void settingLeftImage() {
         if (mLeftImage != 0) {
             mIvLeft.setVisibility(VISIBLE);
             mIvLeft.setImageResource(mLeftImage);
             //image size
             ViewGroup.LayoutParams mIvLeftLayoutParams = mIvLeft.getLayoutParams();
             mIvLeftLayoutParams.width = mLeftImageWidth;
-            mIvLeft.setLayoutParams(mIvLeftLayoutParams);
             mIvLeft.setPadding(mLeftImagePaddingStart, 0, 0, 0);
+            mIvLeft.setLayoutParams(mIvLeftLayoutParams);
             mLeftTotalWidth += mLeftImageWidth;
             mLeftTotalWidth += mLeftImagePaddingStart;
 
@@ -212,43 +587,24 @@ public class TitleBarLayout extends RelativeLayout {
             mIvLeft.setVisibility(GONE);
         }
 
+    }
 
-        //左边文字
-//        if (StringUtil.isEmpty(mLeftText)) {
-//            mTvLeft.setVisibility(GONE);
-//        } else {
-        mTvLeft.setVisibility(VISIBLE);
-        mTvLeft.setText(mLeftText);
-        mTvLeft.setTextSize(TransitionTools.px2sp(mLeftTextSize));
-        mTvLeft.setTextColor(mLeftTextColor);
-        mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
-        mLeftTotalWidth += mLeftTextPaddingStart;
-//        }
+    private void settingLeftText() {
+        if (StringUtil.isEmpty(mLeftText)) {
+            mTvLeft.setPadding(0, 0, 100, 0);
+            mTvLeft.setVisibility(GONE);
+        } else {
+            mTvLeft.setVisibility(VISIBLE);
+            mTvLeft.setText(mLeftText);
+            mTvLeft.setTextSize(TransitionTools.px2sp(mLeftTextSize));
+            mTvLeft.setTextColor(mLeftTextColor);
+            mTvLeft.setTypeface(Typeface.defaultFromStyle(mLeftTextStyle));
+            mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
+            mLeftTotalWidth += mLeftTextPaddingStart;
+        }
+    }
 
-        //标题
-//        if (StringUtil.isEmpty(mTitle)) {
-//            mTvTitle.setVisibility(INVISIBLE);
-//        } else {
-        mTvTitle.setVisibility(VISIBLE);
-        mTvTitle.setText(mTitle);
-        mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
-        mTvTitle.setTextColor(mTitleColor);
-//        }
-
-        //副标题
-//        if (StringUtil.isEmpty(mSubTitle)) {
-//            mTvSubTitle.setVisibility(GONE);
-//        } else {
-        mTvSubTitle.setVisibility(VISIBLE);
-        mTvSubTitle.setText(mSubTitle);
-        mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
-        mTvSubTitle.setTextColor(mSubTitleColor);
-
-        mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
-        mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
-//        }
-
-        //右边图标
+    private void settingRightImage() {
         if (mRightImage != 0) {
             mIvRight.setVisibility(VISIBLE);
             mTvRight.setVisibility(GONE);
@@ -260,22 +616,9 @@ public class TitleBarLayout extends RelativeLayout {
         } else {
             mIvRight.setVisibility(GONE);
         }
+    }
 
-        //右边文字
-//        if (StringUtil.isEmpty(mRightText)) {
-//            mTvRight.setVisibility(GONE);
-//        } else {
-        mTvRight.setVisibility(VISIBLE);
-        mIvRight.setVisibility(GONE);
-        mTvRight.setText(mRightText);
-        mTvRight.setTextSize(TransitionTools.px2sp(mRightTextSize));
-        mTvRight.setTextColor(mRightTextColor);
-        mTvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
-//        }
-
-        /**
-         * 如果是返回键，则点击实现页面返回，否则获取点击事件{@code setLeftClickListener()}
-         */
+    private void settingBackView() {
         if (mIsBackView) {
             mIvLeft.setOnClickListener(new OnClickListener() {
                 @Override
@@ -291,25 +634,57 @@ public class TitleBarLayout extends RelativeLayout {
             });
         }
 
-        //横线
-        mViewLine.setBackgroundColor(mLineBackground);
-        //横线高度
-        if (mLineHeight != 0) {
-            ViewGroup.LayoutParams mViewLineLayoutParams = mViewLine.getLayoutParams();
-            mViewLineLayoutParams.height = mLineHeight;
-            mViewLine.setLayoutParams(mViewLineLayoutParams);
+    }
+
+    private void settingRightText() {
+        if (StringUtil.isEmpty(mRightText)) {
+            mTvRight.setVisibility(GONE);
+        } else {
+            mTvRight.setVisibility(VISIBLE);
+            mIvRight.setVisibility(GONE);
+            mTvRight.setText(mRightText);
+            mTvRight.setTextSize(TransitionTools.px2sp(mRightTextSize));
+            mTvRight.setTextColor(mRightTextColor);
+            mTvRight.setPadding(0, 0, mRightTextPaddingEnd, 0);
+            mTvRight.setTypeface(Typeface.defaultFromStyle(mRightTextStyle));
+        }
+    }
+
+    private void settingSubTitle() {
+        if (StringUtil.isEmpty(mSubTitle)) {
+            mTvSubTitle.setVisibility(GONE);
+        } else {
+            mTvSubTitle.setVisibility(VISIBLE);
+            mTvSubTitle.setText(mSubTitle);
+            mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
+            mTvSubTitle.setTextColor(mSubTitleColor);
+            mTvSubTitle.setTypeface(Typeface.defaultFromStyle(mSubTitleStyle));
+            mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
+            mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
+        }
+    }
+
+    private void settingTitle() {
+        if (StringUtil.isEmpty(mTitle)) {
+            mTvTitle.setVisibility(INVISIBLE);
+        } else {
+            mTvTitle.setVisibility(VISIBLE);
+            mTvTitle.setText(mTitle);
+            mTvTitle.setTypeface(Typeface.defaultFromStyle(mTitleStyle));
+            mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
+            mTvTitle.setTextColor(mTitleColor);
         }
     }
 
     private void initLayoutHeight() {
         if (mIsImmersiveStateBar) {
             int layoutHeight = mLayoutBarHeight + mStatusBarHeight;
-            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, layoutHeight);
+            LayoutParams mRlLayoutLayoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, layoutHeight);
             mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
             mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
             mRlLayout.setPadding(0, mStatusBarHeight, 0, 0);
         } else {
-            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mLayoutBarHeight);
+            LayoutParams mRlLayoutLayoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mLayoutBarHeight);
             mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
             mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
         }
@@ -320,9 +695,10 @@ public class TitleBarLayout extends RelativeLayout {
      *
      * @param title
      */
-    public void setTitle(CharSequence title) {
-        if (!StringUtil.isEmpty(title.toString())) {
-            mTvTitle.setText(title);
+    public void setTitle(String title) {
+        if (!StringUtil.isEmpty(title)) {
+            this.mTitle = title;
+            settingTitle();
         }
     }
 
@@ -356,70 +732,66 @@ public class TitleBarLayout extends RelativeLayout {
      * @param titleColor
      */
     public void setTitleStyle(String title, int titleSize, int titleColor) {
-        if (!StringUtil.isEmpty(title)) {
-            mTvTitle.setText(title);
-        }
-        if (titleSize != 0) {
-            mTvTitle.setTextSize(titleSize);
-        }
-        if (titleColor != 0) {
-            mTvTitle.setTextColor(titleColor);
-        }
+        this.mTitle = title;
+        this.mTitleSize = titleSize;
+        this.mTitleColor = titleColor;
+        settingTitle();
     }
 
     /**
      * 设置副title
      *
-     * @param title
+     * @param subTitle
      */
-    public void setSubTitle(CharSequence title) {
-        if (!StringUtil.isEmpty(title.toString())) {
-            mTvSubTitle.setVisibility(VISIBLE);
-            mTvSubTitle.setText(title);
+    public void setSubTitle(String subTitle) {
+        if (!StringUtil.isEmpty(subTitle)) {
+            this.mSubTitle = subTitle;
+            settingSubTitle();
         }
     }
 
     /**
      * 设置副标题大小
      *
-     * @param titleSize
+     * @param subTitleSize
      */
-    public void setSubTitleSize(int titleSize) {
-        if (titleSize != 0) {
+    public void setSubTitleSize(int subTitleSize) {
+        if (subTitleSize != 0) {
             mTvSubTitle.setVisibility(VISIBLE);
-            mTvSubTitle.setTextSize(titleSize);
+            mTvSubTitle.setTextSize(subTitleSize);
+            mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
+            mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
         }
     }
 
     /**
      * 设置副标题颜色
      *
-     * @param titleColor
+     * @param subTitleColor
      */
-    public void setSubTitleColor(int titleColor) {
-        if (titleColor != 0) {
+    public void setSubTitleColor(int subTitleColor) {
+        if (subTitleColor != 0) {
             mTvSubTitle.setVisibility(VISIBLE);
-            mTvSubTitle.setTextColor(titleColor);
+            mTvSubTitle.setTextColor(subTitleColor);
+            mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
+            mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
         }
     }
 
     /**
      * 一键设置副标题样式、资源等
      *
-     * @param title
-     * @param titleSize
-     * @param titleColor
+     * @param subTitle
+     * @param subTitleSize
+     * @param subTitleColor
      */
-    public void setSubTitleStyle(String title, int titleSize, int titleColor) {
-        if (!StringUtil.isEmpty(title)) {
-            mTvSubTitle.setVisibility(VISIBLE);
-            mTvSubTitle.setText(title);
-        }
-        if (titleSize != 0) {
-            mTvSubTitle.setTextSize(titleSize);
-        }
-        if (titleColor != 0) {
-            mTvSubTitle.setTextColor(titleColor);
+    public void setSubTitleStyle(String subTitle, int subTitleSize, int subTitleColor) {
+        this.mSubTitle = subTitle;
+        this.mSubTitleSize = subTitleSize;
+        this.mSubTitleColor = subTitleColor;
+
+        if (!StringUtil.isEmpty(subTitle) && subTitleSize != 0 && subTitleColor != 0) {
+            settingSubTitle();
         }
     }
 
@@ -430,7 +802,8 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setLeftText(String leftText) {
         if (!StringUtil.isEmpty(leftText)) {
-            mTvLeft.setText(leftText);
+            this.mLeftText = leftText;
+            settingLeftText();
         }
     }
 
@@ -464,14 +837,12 @@ public class TitleBarLayout extends RelativeLayout {
      * @param leftTextColor
      */
     public void setLeftStyle(String leftText, int leftTextSize, int leftTextColor) {
-        if (!StringUtil.isEmpty(leftText)) {
-            mTvTitle.setText(leftText);
-        }
-        if (leftTextSize != 0) {
-            mTvTitle.setTextSize(leftTextSize);
-        }
-        if (leftTextColor != 0) {
-            mTvTitle.setTextColor(leftTextColor);
+
+        if (!StringUtil.isEmpty(leftText) && leftTextSize != 0 && leftTextColor != 0) {
+            this.mLeftText = leftText;
+            this.mLeftTextSize = leftTextSize;
+            this.mLeftTextColor = leftTextColor;
+            settingLeftText();
         }
     }
 
@@ -482,7 +853,8 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setRightText(String rightText) {
         if (!StringUtil.isEmpty(rightText)) {
-            mTvRight.setText(rightText);
+            this.mRightText = rightText;
+            settingRightText();
         }
     }
 
@@ -507,6 +879,25 @@ public class TitleBarLayout extends RelativeLayout {
             mTvRight.setTextColor(rightTextColor);
         }
     }
+
+    public void setRightText(String rightText, int rightTextColor) {
+        if (!StringUtil.isEmpty(rightText) && rightTextColor != 0) {
+            this.mRightText = rightText;
+            this.mRightTextColor = rightTextColor;
+            settingRightText();
+        }
+    }
+
+    public void setRightText(String rightText, int rightTextSize, int rightTextColor) {
+
+        if (!StringUtil.isEmpty(rightText) && rightTextSize != 0 && rightTextColor != 0) {
+            this.mRightText = rightText;
+            this.mRightTextSize = rightTextSize;
+            this.mRightTextColor = rightTextColor;
+            settingRightText();
+        }
+    }
+
 
     /**
      * 标题点击事件

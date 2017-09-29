@@ -148,7 +148,7 @@
         </tr>
         <tr>
             <td>d_left_text_style</td>
-            <td>后续完善该属性</td>
+            <td>设置文字style（normal|bold|italic)</td>
         </tr>
         <tr>
             <td>d_left_text_padding_start</td>
@@ -168,7 +168,7 @@
         </tr>
         <tr>
             <td>d_title_style</td>
-            <td>后续完善该属性</td>
+            <td>设置文字style（normal|bold|italic)</td>
         </tr>
         <tr>
             <td>d_subtitle_text</td>
@@ -184,7 +184,7 @@
         </tr>
         <tr>
             <td>d_subtitle_style</td>
-            <td>后续完善该属性</td>
+            <td>设置文字style（normal|bold|italic)</td>
         </tr>
         <tr>
             <td>d_right_text</td>
@@ -200,7 +200,7 @@
         </tr>
         <tr>
             <td>d_right_text_style</td>
-            <td>后续完善该属性</td>
+            <td>设置文字style（normal|bold|italic)</td>
         </tr>
         <tr>
             <td>d_right_text_padding_end</td>
@@ -241,14 +241,6 @@
         <tr>
             <td>d_is_immersive_state_bar</td>
             <td>是否是沉浸式状态栏，默认false，（为true时标题栏高度包含状态栏高度）</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
         </tr>
 </table>
 
@@ -345,6 +337,7 @@
 ## 更新优化说明
 * v1.0.4
     * 修复bug
+    * 支持设置文字style（normal|bold|italic)
 * v1.0.2
     * 增加支持副标题功能
     * 优化标题过长显示问题
