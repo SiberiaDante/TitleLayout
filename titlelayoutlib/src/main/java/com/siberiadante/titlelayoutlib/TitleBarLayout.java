@@ -214,40 +214,39 @@ public class TitleBarLayout extends RelativeLayout {
 
 
         //左边文字
-        if (StringUtil.isEmpty(mLeftText)) {
-            mTvLeft.setVisibility(GONE);
-        } else {
-            mTvLeft.setVisibility(VISIBLE);
-            mTvLeft.setText(mLeftText);
-            mTvLeft.setTextSize(TransitionTools.px2sp(mLeftTextSize));
-            mTvLeft.setTextColor(mLeftTextColor);
-            mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
-
-            mLeftTotalWidth += mLeftTextPaddingStart;
-        }
+//        if (StringUtil.isEmpty(mLeftText)) {
+//            mTvLeft.setVisibility(GONE);
+//        } else {
+        mTvLeft.setVisibility(VISIBLE);
+        mTvLeft.setText(mLeftText);
+        mTvLeft.setTextSize(TransitionTools.px2sp(mLeftTextSize));
+        mTvLeft.setTextColor(mLeftTextColor);
+        mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
+        mLeftTotalWidth += mLeftTextPaddingStart;
+//        }
 
         //标题
-        if (StringUtil.isEmpty(mTitle)) {
-            mTvTitle.setVisibility(INVISIBLE);
-        } else {
-            mTvTitle.setVisibility(VISIBLE);
-            mTvTitle.setText(mTitle);
-            mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
-            mTvTitle.setTextColor(mTitleColor);
-        }
+//        if (StringUtil.isEmpty(mTitle)) {
+//            mTvTitle.setVisibility(INVISIBLE);
+//        } else {
+        mTvTitle.setVisibility(VISIBLE);
+        mTvTitle.setText(mTitle);
+        mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
+        mTvTitle.setTextColor(mTitleColor);
+//        }
 
         //副标题
-        if (StringUtil.isEmpty(mSubTitle)) {
-            mTvSubTitle.setVisibility(GONE);
-        } else {
-            mTvSubTitle.setVisibility(VISIBLE);
-            mTvSubTitle.setText(mSubTitle);
-            mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
-            mTvSubTitle.setTextColor(mSubTitleColor);
+//        if (StringUtil.isEmpty(mSubTitle)) {
+//            mTvSubTitle.setVisibility(GONE);
+//        } else {
+        mTvSubTitle.setVisibility(VISIBLE);
+        mTvSubTitle.setText(mSubTitle);
+        mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
+        mTvSubTitle.setTextColor(mSubTitleColor);
 
-            mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
-            mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
-        }
+        mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
+        mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
+//        }
 
         //右边图标
         if (mRightImage != 0) {
@@ -263,16 +262,16 @@ public class TitleBarLayout extends RelativeLayout {
         }
 
         //右边文字
-        if (StringUtil.isEmpty(mRightText)) {
-            mTvRight.setVisibility(GONE);
-        } else {
-            mTvRight.setVisibility(VISIBLE);
-            mIvRight.setVisibility(GONE);
-            mTvRight.setText(mRightText);
-            mTvRight.setTextSize(TransitionTools.px2sp(mRightTextSize));
-            mTvRight.setTextColor(mRightTextColor);
-            mTvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
-        }
+//        if (StringUtil.isEmpty(mRightText)) {
+//            mTvRight.setVisibility(GONE);
+//        } else {
+        mTvRight.setVisibility(VISIBLE);
+        mIvRight.setVisibility(GONE);
+        mTvRight.setText(mRightText);
+        mTvRight.setTextSize(TransitionTools.px2sp(mRightTextSize));
+        mTvRight.setTextColor(mRightTextColor);
+        mTvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
+//        }
 
         /**
          * 如果是返回键，则点击实现页面返回，否则获取点击事件{@code setLeftClickListener()}

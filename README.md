@@ -22,7 +22,7 @@
 * Step 2. Add the dependency
     ```
         dependencies {
-                compile 'com.github.SiberiaDante:TitleLayout:v1.0.3'
+                compile 'com.github.SiberiaDante:TitleLayout:v1.0.4'
         }
 
     ```
@@ -343,8 +343,8 @@
 
 
 ## 更新优化说明
-* v1.0.3
-    * 修复动态设置返回键不起作用bug
+* v1.0.4
+    * 修复bug
 * v1.0.2
     * 增加支持副标题功能
     * 优化标题过长显示问题
