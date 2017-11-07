@@ -36,6 +36,7 @@
 
         <attr name="d_title_layout_height" />
         <attr name="d_title_layout_background" />
+        <attr name="d_have_line" />
 
         <attr name="d_is_back_view" />
         <attr name="d_is_immersive_state_bar" />
@@ -90,6 +91,7 @@
 
     <attr name="d_line_height" format="dimension|reference" />
     <attr name="d_line_background" format="color|reference" />
+    <attr name="d_have_line" format="boolean" />
 
     <attr name="d_title_layout_height" format="dimension|reference" />
     <attr name="d_title_layout_background" format="color|reference" />

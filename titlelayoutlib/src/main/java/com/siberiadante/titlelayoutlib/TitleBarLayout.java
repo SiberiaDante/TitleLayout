@@ -74,7 +74,7 @@ public class TitleBarLayout extends RelativeLayout {
     private int mLineHeight = 1;
 
     private boolean mIsBackView = true;
-
+    private boolean mIsHaveLine = true;
     private boolean mIsImmersiveStateBar = false;
 
     private int mLineBackground = Color.BLACK;
@@ -172,6 +172,8 @@ public class TitleBarLayout extends RelativeLayout {
          */
         mLineBackground = attributes.getColor(R.styleable.TitleBarLayout_d_line_background, mLineBackground);
         mLineHeight = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_line_height, mLineHeight);
+        mIsHaveLine = attributes.getBoolean(R.styleable.TitleBarLayout_d_have_line, mIsHaveLine);
+
         /*
         左侧图标和文字是否为返回键
          */
@@ -422,6 +424,12 @@ public class TitleBarLayout extends RelativeLayout {
         }
     }
 
+    /**
+     * 设置右侧文字颜色
+     *
+     * @param rightText
+     * @param rightTextColor
+     */
     public void setRightText(String rightText, int rightTextColor) {
         if (!StringUtil.isEmpty(rightText) && rightTextColor != 0) {
             this.mRightText = rightText;
@@ -430,6 +438,33 @@ public class TitleBarLayout extends RelativeLayout {
         }
     }
 
+    /**
+     * 设置左边图片资源
+     *
+     * @param leftImageResId
+     */
+    public void setLeftImage(int leftImageResId) {
+        this.mLeftImage = leftImageResId;
+        settingLeftImage();
+    }
+
+    /**
+     * 设置右边图片资源
+     *
+     * @param rightImageResId
+     */
+    public void setRightImage(int rightImageResId) {
+        this.mRightImage = rightImageResId;
+        settingRightImage();
+    }
+
+    /**
+     * 设置右侧文字颜色
+     *
+     * @param rightText
+     * @param rightTextSize
+     * @param rightTextColor
+     */
     public void setRightText(String rightText, int rightTextSize, int rightTextColor) {
 
         if (!StringUtil.isEmpty(rightText) && rightTextSize != 0 && rightTextColor != 0) {
@@ -440,6 +475,25 @@ public class TitleBarLayout extends RelativeLayout {
         }
     }
 
+    /**
+     * 1.0.1之后增加动态设置是否为沉浸式状态栏
+     *
+     * @param isImmersiveStateBar
+     */
+    public void setIsImmersiveStateBar(boolean isImmersiveStateBar) {
+        mIsImmersiveStateBar = isImmersiveStateBar;
+        initLayoutHeight();
+    }
+
+    /**
+     * 设置是否底部有横线
+     *
+     * @param haveLine
+     */
+    public void setIsHaveLine(boolean haveLine) {
+        this.mIsHaveLine = haveLine;
+        settingLine();
+    }
 
     /**
      * 标题点击事件
@@ -516,15 +570,6 @@ public class TitleBarLayout extends RelativeLayout {
         }
     }
 
-    /**
-     * 1.0.1之后增加动态设置是否为沉浸式状态栏
-     *
-     * @param isImmersiveStateBar
-     */
-    public void setIsImmersiveStateBar(boolean isImmersiveStateBar) {
-        mIsImmersiveStateBar = isImmersiveStateBar;
-        initLayoutHeight();
-    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -540,6 +585,10 @@ public class TitleBarLayout extends RelativeLayout {
     }
 
     private void settingLine() {
+        if (!mIsHaveLine) {
+            mViewLine.setVisibility(GONE);
+            return;
+        }
         mViewLine.setBackgroundColor(mLineBackground);
         //横线高度
         if (mLineHeight != 0) {

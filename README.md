@@ -331,10 +331,16 @@
             <td>setIsLeftBackView(boolean isLeftBackView)</td>
             <td>设置左侧文字和按钮是否为返回按钮</td>
         </tr>
+        <tr>
+            <td>setIsHaveLine(boolean haveLine)</td>
+            <td>设置标题栏底部是否有分割线</td>
+        </tr>
 </table>
 
 
 ## 更新优化说明
+* v1.0.5:（版本尚未发布）
+    * 增加支持动态设置左侧和右侧图标功能
 * v1.0.4
     * 修复bug
     * 支持设置文字style（normal|bold|italic)
