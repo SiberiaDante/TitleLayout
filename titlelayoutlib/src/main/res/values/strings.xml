@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">TitleLayoutLib</string>
-    <string name="NotInitError">Use this lib,you need init first! In your Application: TitleLayoutLib.initLib(appContext);</string>
-    <string name="not_init_this_lib">unInit SiberiaDanteLib"</string>
+    <!--<string name="NotInitError">Use this lib,you need init first! In your Application: TitleLayoutLib.initLib(appContext);</string>-->
+    <!--<string name="not_init_this_lib">unInit SiberiaDanteLib"</string>-->
 </resources>

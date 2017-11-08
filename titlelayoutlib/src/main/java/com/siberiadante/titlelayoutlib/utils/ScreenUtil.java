@@ -20,7 +20,6 @@ import android.view.WindowManager;
 
 import com.siberiadante.titlelayoutlib.Constants;
 import com.siberiadante.titlelayoutlib.TitleLayoutLib;
-import com.siberiadante.titlelayoutlib.exception.TitleLayoutLibException;
 
 
 /**
@@ -34,7 +33,7 @@ public class ScreenUtil {
     private static final int COLOR_DEFAULT = Color.parseColor("#20000000");
 
     private ScreenUtil() {
-        new TitleLayoutLibException(ScreenUtil.class.getName());
+        throw new UnsupportedOperationException("Use this lib,you need init first! In your Application: TitleLayoutLib.initLib(context);");
     }
 
     public static float getDensity(Activity activity) {
