@@ -48,6 +48,10 @@
     ```
 ## 图片有点虚，请见谅
 ![图片](/images/show_title.jpeg)
+## 使用之前在你的Application中初始化
+```
+ TitleLayoutLib.init(context);
+```
 ## 在布局中使用：
 ```
 <com.siberiadante.titlelayoutlib.TitleBarLayout
@@ -341,6 +345,7 @@
 ## 更新优化说明
 * v1.0.5:（版本尚未发布）
     * 增加支持动态设置左侧和右侧图标功能
+    * 增加未初始化时UnsupportedOperationException异常提示
 * v1.0.4
     * 修复bug
     * 支持设置文字style（normal|bold|italic)
