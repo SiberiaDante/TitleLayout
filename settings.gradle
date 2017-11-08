@@ -1,1 +1,1 @@
-include ':app', ':titlelayoutlib', ':customview'
+include ':app', ':titlelayoutlib'

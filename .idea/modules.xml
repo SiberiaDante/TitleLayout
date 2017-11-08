@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TitleLayout.iml" filepath="$PROJECT_DIR$/TitleLayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
       <module fileurl="file://$PROJECT_DIR$/titlelayoutlib/titlelayoutlib.iml" filepath="$PROJECT_DIR$/titlelayoutlib/titlelayoutlib.iml" />
     </modules>
   </component>
