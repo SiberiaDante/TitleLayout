@@ -29,3 +29,6 @@ dependencies {
     compile 'junit:junit:4.12'
     compile project(':titlelayoutlib')
 }
+repositories {
+    maven { url 'https://jitpack.io' }
+}
