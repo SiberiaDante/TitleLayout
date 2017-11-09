@@ -3,10 +3,8 @@
 
 ## 堆码不易，star支持，万分感谢
 #### 欢迎关注：
-* [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
+* [Github 地址：https://github.com/SibreiaDante]
 * [博客园:http://www.cnblogs.com/shen-hua/]
-* [email:994537867@qq.com] [siberiadante@gmail.com]
-### [Android开发必备经典收藏集（整理中）]
 ### [Android开发常备工具整理中]
 ## Gradle依赖：
 * Step 1. Add the JitPack repository to your build file
@@ -22,7 +20,7 @@
 * Step 2. Add the dependency
     ```
         dependencies {
-                compile 'com.github.SiberiaDante:TitleLayout:v1.0.4'
+                compile 'com.github.SiberiaDante:TitleLayout:v1.0.9'
         }
 
     ```
@@ -343,7 +341,7 @@
 
 
 ## 更新优化说明
-* v1.0.5:
+* v1.0.9:
     * 增加支持动态设置左侧和右侧图标功能
     * 增加未初始化时UnsupportedOperationException异常提示
 * v1.0.4
