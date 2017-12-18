@@ -702,7 +702,14 @@ public class TitleBarLayout extends RelativeLayout {
             mTvTitle.setTextColor(mTitleColor);
         }
     }
-
+    /**
+     * 左侧返回按钮隐藏
+     *
+     * @param visibility
+     */
+    public void setLeftBackViewVisible(int visibility) {
+        mIvLeft.setVisibility(visibility);
+    }
     private void initLayoutHeight() {
         if (mIsImmersiveStateBar) {
             int layoutHeight = mLayoutBarHeight + mStatusBarHeight;
