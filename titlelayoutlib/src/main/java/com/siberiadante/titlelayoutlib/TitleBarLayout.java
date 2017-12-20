@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.AttrRes;
-import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -277,7 +276,7 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setTitleStyle(String title, int titleSize, int titleColor) {
         this.mTitle = title;
-        this.mTitleSize = titleSize;
+        this.mTitleSize = TransitionTools.dip2px(titleSize);
         this.mTitleColor = titleColor;
         settingTitle();
     }
@@ -331,7 +330,7 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setSubTitleStyle(String subTitle, int subTitleSize, int subTitleColor) {
         this.mSubTitle = subTitle;
-        this.mSubTitleSize = subTitleSize;
+        this.mSubTitleSize = TransitionTools.dip2px(subTitleSize);
         this.mSubTitleColor = subTitleColor;
 
         if (!StringUtil.isEmpty(subTitle) && subTitleSize != 0 && subTitleColor != 0) {
@@ -384,7 +383,7 @@ public class TitleBarLayout extends RelativeLayout {
 
         if (!StringUtil.isEmpty(leftText) && leftTextSize != 0 && leftTextColor != 0) {
             this.mLeftText = leftText;
-            this.mLeftTextSize = leftTextSize;
+            this.mLeftTextSize = TransitionTools.dip2px(leftTextSize);
             this.mLeftTextColor = leftTextColor;
             settingLeftText();
         }
@@ -437,7 +436,22 @@ public class TitleBarLayout extends RelativeLayout {
             settingRightText();
         }
     }
+    /**
+     * 设置右侧文字
+     *
+     * @param rightText
+     * @param rightTextSize
+     * @param rightTextColor
+     */
+    public void setRightTextStyle(String rightText, int rightTextSize, int rightTextColor) {
 
+        if (!StringUtil.isEmpty(rightText) && rightTextSize != 0 && rightTextColor != 0) {
+            this.mRightText = rightText;
+            this.mRightTextSize = TransitionTools.dip2px(rightTextSize);
+            this.mRightTextColor = rightTextColor;
+            settingRightText();
+        }
+    }
     /**
      * 设置左边图片资源
      *
@@ -458,22 +472,7 @@ public class TitleBarLayout extends RelativeLayout {
         settingRightImage();
     }
 
-    /**
-     * 设置右侧文字颜色
-     *
-     * @param rightText
-     * @param rightTextSize
-     * @param rightTextColor
-     */
-    public void setRightText(String rightText, int rightTextSize, int rightTextColor) {
 
-        if (!StringUtil.isEmpty(rightText) && rightTextSize != 0 && rightTextColor != 0) {
-            this.mRightText = rightText;
-            this.mRightTextSize = rightTextSize;
-            this.mRightTextColor = rightTextColor;
-            settingRightText();
-        }
-    }
 
     /**
      * 1.0.1之后增加动态设置是否为沉浸式状态栏
