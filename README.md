@@ -7,43 +7,11 @@
 * [博客园:http://www.cnblogs.com/shen-hua/]
 ### [Android开发常备工具整理中]
 ## Gradle依赖：
-* Step 1. Add the JitPack repository to your build file
-    ```
-    	allprojects {
-    		repositories {
-    			...
-    			maven { url 'https://jitpack.io' }
-    		}
-    	}
-    ```
-
-* Step 2. Add the dependency
-    ```
+```
         dependencies {
                 compile 'com.github.SiberiaDante:TitleLayout:v1.0.9'
         }
-
-    ```
-## maven依赖
-* Step 1. Add the JitPack repository to your build file
-    ```
-    	<repositories>
-    		<repository>
-    		    <id>jitpack.io</id>
-    		    <url>https://jitpack.io</url>
-    		</repository>
-    	</repositories>
-    ```
-
-* Step 2. Add the dependency
-    ```
-    	<dependency>
-    	    <groupId>com.github.SiberiaDante</groupId>
-    	    <artifactId>TitleLayout</artifactId>
-    	    <version>v1.0.2</version>
-    	</dependency>
-
-    ```
+```
 ## 图片有点虚，请见谅
 ![图片](/images/show_title.jpeg)
 ## 使用之前在你的Application中初始化
@@ -62,18 +30,25 @@
         dante:d_left_image_padding_start="10dp"
         dante:d_left_image_width="30dp"
         dante:d_left_text="测试"
+        dante:d_left_text_style="normal"
         dante:d_left_text_color="@color/black"
         dante:d_left_text_padding_start="10dp"
         dante:d_left_text_size="14sp"
         dante:d_line_height="1px"
         dante:d_right_text="举报"
-        dante:d_right_text_color="@color/white"
         dante:d_right_text_size="14sp"
-        dante:d_title_color="@color/black"
-        dante:d_title_layout_background="@color/red"
-        dante:d_title_layout_height="45dp"
+        dante:d_right_text_style="normal"
+        dante:d_right_text_color="@color/white"
         dante:d_title_size="18sp"
-        dante:d_title_text="这里是标题" />
+        dante:d_title_style="mormal"
+        dante:d_title_text="这里是标题"
+        dante:d_title_color="@color/black"
+        dante:d_subtitle_size="11sp"
+        dante:d_subtitle_style="mormal"
+        dante:d_subtitle_text="这里是副标题"
+        dante:d_subtitle_color="@color/gray"
+        dante:d_title_layout_background="@color/red"
+        dante:d_title_layout_height="45dp"/>
 ```
 ## 使用Java代码：
 ```
@@ -86,7 +61,7 @@
         });
         //设置Titlesize
         titleBarLayout.setTitleSize(30);
-   //一键设置标题样式
+        //一键设置标题样式
         titleBarLayout.setTitleStyle("我是标题", 18, ContextCompat.getColor(this, R.color.action_sheet_blue));
         titleBarLayout.setRightImageClickListener(new View.OnClickListener() {
             @Override
