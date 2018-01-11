@@ -436,6 +436,7 @@ public class TitleBarLayout extends RelativeLayout {
             settingRightText();
         }
     }
+
     /**
      * 设置右侧文字
      *
@@ -452,6 +453,7 @@ public class TitleBarLayout extends RelativeLayout {
             settingRightText();
         }
     }
+
     /**
      * 设置左边图片资源
      *
@@ -471,7 +473,6 @@ public class TitleBarLayout extends RelativeLayout {
         this.mRightImage = rightImageResId;
         settingRightImage();
     }
-
 
 
     /**
@@ -701,6 +702,7 @@ public class TitleBarLayout extends RelativeLayout {
             mTvTitle.setTextColor(mTitleColor);
         }
     }
+
     /**
      * 左侧返回按钮隐藏
      *
@@ -709,6 +711,52 @@ public class TitleBarLayout extends RelativeLayout {
     public void setLeftBackViewVisible(int visibility) {
         mIvLeft.setVisibility(visibility);
     }
+
+    /**
+     * 设置左侧文字显示隐藏
+     *
+     * @param visibility
+     */
+    public void setLeftTextViewVisible(int visibility) {
+        mTvLeft.setVisibility(visibility);
+    }
+
+    /**
+     * 右侧文字设置显示隐藏
+     *
+     * @param visible
+     */
+    public void setRightTextViewVisible(int visible) {
+        mTvRight.setVisibility(visible);
+    }
+
+    /**
+     * 右侧图标设置显示隐藏
+     *
+     * @param visible
+     */
+    public void setRightImageViewVisible(int visible) {
+        mIvRight.setVisibility(visible);
+    }
+
+    /**
+     * 设置标题显示隐藏
+     *
+     * @param visible
+     */
+    public void setTitleVisible(int visible) {
+        mTvTitle.setVisibility(visible);
+    }
+
+    /**
+     * 设置副标题显示隐藏
+     *
+     * @param visible
+     */
+    public void setSubTitleVisible(int visible) {
+        mTvSubTitle.setVisibility(visible);
+    }
+
     private void initLayoutHeight() {
         if (mIsImmersiveStateBar) {
             int layoutHeight = mLayoutBarHeight + mStatusBarHeight;

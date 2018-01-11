@@ -337,10 +337,36 @@
             <td>setIsHaveLine(boolean haveLine)</td>
             <td>设置标题栏底部是否有分割线</td>
         </tr>
+        <tr>
+            <td>setLeftBackViewVisible</td>
+            <td>设置左侧图标显示隐藏</td>
+        </tr>
+        <tr>
+            <td>setLeftTextViewVisible</td>
+            <td>设置左侧文字显示隐藏</td>
+        </tr>
+        <tr>
+            <td>setRightTextViewVisible</td>
+            <td>设置右侧文字显示隐藏</td>
+        </tr>
+        <tr>
+            <td>setRightImageViewVisible</td>
+            <td>设置右侧图标显示隐藏</td>
+        </tr>
+        <tr>
+            <td>setTitleVisible</td>
+            <td>设置标题显示隐藏</td>
+        </tr>
+        <tr>
+            <td>setSubTitleVisible</td>
+            <td>设置副标题显示隐藏</td>
+        </tr>
 </table>
 
 
 ## 更新优化说明
+* v1.1.0:(未发布)
+    * 增加支持Java代码设置所有控件显示隐藏
 * v1.0.9:
     * 增加支持动态设置左侧和右侧图标功能
     * 增加未初始化时UnsupportedOperationException异常提示
