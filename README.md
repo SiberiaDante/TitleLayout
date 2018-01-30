@@ -338,6 +338,10 @@
         </tr>
 </table>
 
+## 问题
+* 设置字体颜色失真，请使用：ContextCompat.getColor(this,R.color.red)
+
+
 
 ## 更新优化说明
 * v1.1.0:(未发布)
