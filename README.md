@@ -8,9 +8,7 @@
 ### [Android开发常备工具整理中]
 ## Gradle依赖：
 ```
-        dependencies {
-                compile 'com.github.SiberiaDante:TitleLayout:v1.1.0'
-        }
+   compile 'com.github.SiberiaDante:TitleLayout:v1.1.0'
 ```
 ## 图片有点虚，请见谅
 ![图片](/images/show_title.jpeg)
