@@ -9,15 +9,12 @@
 ## Gradle依赖：
 ```
         dependencies {
-                compile 'com.github.SiberiaDante:TitleLayout:v1.0.9'
+                compile 'com.github.SiberiaDante:TitleLayout:v1.1.0'
         }
 ```
 ## 图片有点虚，请见谅
 ![图片](/images/show_title.jpeg)
-## 使用之前在你的Application中初始化
-```
- TitleLayoutLib.init(context);
-```
+
 ## 在布局中使用：
 ```
 <com.siberiadante.titlelayoutlib.TitleBarLayout
@@ -344,7 +341,7 @@
 
 
 ## 更新优化说明
-* v1.1.0:(未发布)
+* v1.1.0:
     * 增加支持Java代码设置所有控件显示隐藏
 * v1.0.9:
     * 增加支持动态设置左侧和右侧图标功能

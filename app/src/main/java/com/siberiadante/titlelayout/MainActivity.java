@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.siberiadante.titlelayoutlib.TitleBarLayout;
-import com.siberiadante.titlelayoutlib.TitleLayoutLib;
 import com.siberiadante.titlelayoutlib.utils.ScreenUtil;
 
 public class MainActivity extends AppCompatActivity {

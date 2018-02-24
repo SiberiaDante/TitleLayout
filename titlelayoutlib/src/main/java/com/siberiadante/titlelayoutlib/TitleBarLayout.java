@@ -25,7 +25,7 @@ import com.siberiadante.titlelayoutlib.utils.TransitionTools;
 
 /**
  * @Created SiberiaDante
- * @Describe： 使用说明<br/><a href="https://github.com/SiberiaDante/TitleLayout">GitHub</a>
+ * @Describe： 使用说明<br                               /><a href="https://github.com/SiberiaDante/TitleLayout">GitHub</a>
  * 多功能、通用的、可在布局或者使用Java代码实现标题栏；
  * 支持沉浸式状态栏；
  * 支持左侧返回按钮不需要手动实现页面返回；
@@ -38,36 +38,36 @@ import com.siberiadante.titlelayoutlib.utils.TransitionTools;
  */
 
 public class TitleBarLayout extends RelativeLayout {
-    private int mLayoutBarHeight = TransitionTools.dip2px(45);
+    private int mLayoutBarHeight;
 
     private int mLeftImage;
-    private int mLeftImageWidth = TransitionTools.dip2px(30);
-    private int mLeftImagePaddingStart = TransitionTools.dip2px(10);
+    private int mLeftImageWidth;
+    private int mLeftImagePaddingStart;
 
     private String mLeftText = "";
-    private int mLeftTextSize = TransitionTools.dip2px(16);
+    private int mLeftTextSize;
     private int mLeftTextColor = Color.BLACK;
-    private int mLeftTextPaddingStart = TransitionTools.dip2px(10);
+    private int mLeftTextPaddingStart;
     private int mLeftTextStyle = Typeface.NORMAL;
 
     private String mTitle = "";
-    private float mTitleSize = TransitionTools.dip2px(18);
+    private float mTitleSize;
     private int mTitleColor = Color.BLACK;
     private int mTitleStyle = Typeface.NORMAL;
 
     private String mSubTitle = "";
-    private float mSubTitleSize = TransitionTools.dip2px(12);
+    private float mSubTitleSize;
     private int mSubTitleColor = Color.GRAY;
     private int mSubTitleStyle = Typeface.NORMAL;
 
     private int mRightImage;
-    private int mRightImageWidth = TransitionTools.dip2px(30);
-    private int mRightImagePaddingEnd = TransitionTools.dip2px(10);
+    private int mRightImageWidth;
+    private int mRightImagePaddingEnd;
 
     private String mRightText = "";
-    private float mRightTextSize = TransitionTools.dip2px(16);
+    private float mRightTextSize;
     private int mRightTextColor = Color.BLACK;
-    private int mRightTextPaddingEnd = TransitionTools.dip2px(10);
+    private int mRightTextPaddingEnd;
     private int mRightTextStyle = Typeface.NORMAL;
 
     private int mLineHeight = 1;
@@ -108,6 +108,17 @@ public class TitleBarLayout extends RelativeLayout {
 
     public TitleBarLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mLayoutBarHeight = TransitionTools.dip2px(context, 45);
+        mLeftImageWidth = TransitionTools.dip2px(context, 30);
+        mLeftImagePaddingStart = TransitionTools.dip2px(context, 10);
+        mLeftTextSize = TransitionTools.dip2px(context, 16);
+        mLeftTextPaddingStart = TransitionTools.dip2px(context, 10);
+        mTitleSize = TransitionTools.dip2px(context, 18);
+        mSubTitleSize = TransitionTools.dip2px(context, 12);
+        mRightImageWidth = TransitionTools.dip2px(context, 30);
+        mRightImagePaddingEnd = TransitionTools.dip2px(context, 10);
+        mRightTextSize = TransitionTools.dip2px(context, 16);
+        mRightTextPaddingEnd = TransitionTools.dip2px(context, 10);
 
         mContext = context;
         mStatusBarHeight = ScreenUtil.getStatusBarHeight();
@@ -276,7 +287,7 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setTitleStyle(String title, int titleSize, int titleColor) {
         this.mTitle = title;
-        this.mTitleSize = TransitionTools.dip2px(titleSize);
+        this.mTitleSize = TransitionTools.dip2px(mContext,titleSize);
         this.mTitleColor = titleColor;
         settingTitle();
     }
@@ -330,7 +341,7 @@ public class TitleBarLayout extends RelativeLayout {
      */
     public void setSubTitleStyle(String subTitle, int subTitleSize, int subTitleColor) {
         this.mSubTitle = subTitle;
-        this.mSubTitleSize = TransitionTools.dip2px(subTitleSize);
+        this.mSubTitleSize = TransitionTools.dip2px(mContext,subTitleSize);
         this.mSubTitleColor = subTitleColor;
 
         if (!StringUtil.isEmpty(subTitle) && subTitleSize != 0 && subTitleColor != 0) {
@@ -383,7 +394,7 @@ public class TitleBarLayout extends RelativeLayout {
 
         if (!StringUtil.isEmpty(leftText) && leftTextSize != 0 && leftTextColor != 0) {
             this.mLeftText = leftText;
-            this.mLeftTextSize = TransitionTools.dip2px(leftTextSize);
+            this.mLeftTextSize = TransitionTools.dip2px(mContext,leftTextSize);
             this.mLeftTextColor = leftTextColor;
             settingLeftText();
         }
@@ -448,7 +459,7 @@ public class TitleBarLayout extends RelativeLayout {
 
         if (!StringUtil.isEmpty(rightText) && rightTextSize != 0 && rightTextColor != 0) {
             this.mRightText = rightText;
-            this.mRightTextSize = TransitionTools.dip2px(rightTextSize);
+            this.mRightTextSize = TransitionTools.dip2px(mContext,rightTextSize);
             this.mRightTextColor = rightTextColor;
             settingRightText();
         }
@@ -623,7 +634,7 @@ public class TitleBarLayout extends RelativeLayout {
         } else {
             mTvLeft.setVisibility(VISIBLE);
             mTvLeft.setText(mLeftText);
-            mTvLeft.setTextSize(TransitionTools.px2sp(mLeftTextSize));
+            mTvLeft.setTextSize(TransitionTools.px2sp(mContext,mLeftTextSize));
             mTvLeft.setTextColor(mLeftTextColor);
             mTvLeft.setTypeface(Typeface.defaultFromStyle(mLeftTextStyle));
             mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
@@ -670,7 +681,7 @@ public class TitleBarLayout extends RelativeLayout {
             mTvRight.setVisibility(VISIBLE);
             mIvRight.setVisibility(GONE);
             mTvRight.setText(mRightText);
-            mTvRight.setTextSize(TransitionTools.px2sp(mRightTextSize));
+            mTvRight.setTextSize(TransitionTools.px2sp(mContext,mRightTextSize));
             mTvRight.setTextColor(mRightTextColor);
             mTvRight.setPadding(0, 0, mRightTextPaddingEnd, 0);
             mTvRight.setTypeface(Typeface.defaultFromStyle(mRightTextStyle));
@@ -683,7 +694,7 @@ public class TitleBarLayout extends RelativeLayout {
         } else {
             mTvSubTitle.setVisibility(VISIBLE);
             mTvSubTitle.setText(mSubTitle);
-            mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
+            mTvSubTitle.setTextSize(TransitionTools.px2sp(mContext,mSubTitleSize));
             mTvSubTitle.setTextColor(mSubTitleColor);
             mTvSubTitle.setTypeface(Typeface.defaultFromStyle(mSubTitleStyle));
             mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
@@ -698,7 +709,7 @@ public class TitleBarLayout extends RelativeLayout {
             mTvTitle.setVisibility(VISIBLE);
             mTvTitle.setText(mTitle);
             mTvTitle.setTypeface(Typeface.defaultFromStyle(mTitleStyle));
-            mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
+            mTvTitle.setTextSize(TransitionTools.px2sp(mContext,mTitleSize));
             mTvTitle.setTextColor(mTitleColor);
         }
     }

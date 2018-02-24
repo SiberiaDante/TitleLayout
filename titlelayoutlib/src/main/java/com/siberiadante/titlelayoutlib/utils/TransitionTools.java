@@ -1,10 +1,8 @@
 package com.siberiadante.titlelayoutlib.utils;
 
 import android.app.Activity;
+import android.content.Context;
 import android.util.DisplayMetrics;
-import android.util.TypedValue;
-
-import com.siberiadante.titlelayoutlib.TitleLayoutLib;
 
 public class TransitionTools {
     public static float getDensity(Activity activity) {
@@ -17,30 +15,19 @@ public class TransitionTools {
     /**
      * dip转为 px
      */
-    public static int dip2px(float dipValue) {
+    public static int dip2px(Context context, float dipValue) {
 //        final float scale = Resources.getSystem().getDisplayMetrics().density;
-        final float scale = TitleLayoutLib.getContext().getResources().getDisplayMetrics().density;
+        final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
     }
 
     /**
      * px 转为 dip
      */
-    public static int px2dip(float pxValue) {
-        final float scale = TitleLayoutLib.getContext().getResources().getDisplayMetrics().density;
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
 
         return (int) (pxValue / scale + 0.5f);
-    }
-
-    /**
-     * Api方法转换
-     *
-     * @param dpValue
-     * @return
-     */
-    public static int dp2px(float dpValue) {
-
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, TitleLayoutLib.getContext().getResources().getDisplayMetrics());
     }
 
     /**
@@ -49,8 +36,8 @@ public class TransitionTools {
      * @param pxValue
      * @return
      */
-    public static int px2sp(float pxValue) {
-        final float fontScale = TitleLayoutLib.getContext().getResources().getDisplayMetrics().scaledDensity;
+    public static int px2sp(Context context, float pxValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
 
@@ -60,8 +47,8 @@ public class TransitionTools {
      * @param spValue
      * @return
      */
-    public static int sp2px(float spValue) {
-        final float fontScale = TitleLayoutLib.getContext().getResources().getDisplayMetrics().scaledDensity;
+    public static int sp2px(Context context, float spValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
 }

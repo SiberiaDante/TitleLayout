@@ -18,10 +18,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.siberiadante.titlelayoutlib.Constants;
-import com.siberiadante.titlelayoutlib.TitleLayoutLib;
-
-
 /**
  * Created by SiberiaDante on 2017/5/4.
  * 屏幕相关工具类
@@ -31,10 +27,7 @@ public class ScreenUtil {
 
     private static final int INVALID_VAL = -1;
     private static final int COLOR_DEFAULT = Color.parseColor("#20000000");
-
-    private ScreenUtil() {
-        throw new UnsupportedOperationException("Use this lib,you need init first! In your Application: TitleLayoutLib.initLib(context);");
-    }
+    private static final String STATUS_BAR_HEIGHT_RES_NAME = "status_bar_height";
 
     public static float getDensity(Activity activity) {
         //屏幕dpi
@@ -46,8 +39,8 @@ public class ScreenUtil {
     /**
      * @return 获取屏幕的宽 单位：px
      */
-    public static int getScreenWidthPx() {
-        WindowManager windowManager = (WindowManager) TitleLayoutLib.getContext().getSystemService(Context.WINDOW_SERVICE);
+    public static int getScreenWidthPx(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
@@ -56,8 +49,8 @@ public class ScreenUtil {
     /**
      * @return 获取屏幕的高 单位：px
      */
-    public static int getScreenHeightPx() {
-        WindowManager windowManager = (WindowManager) TitleLayoutLib.getContext().getSystemService(Context.WINDOW_SERVICE);
+    public static int getScreenHeightPx(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
         return dm.heightPixels;
@@ -69,8 +62,8 @@ public class ScreenUtil {
      *
      * @return 屏幕宽
      */
-    public static int getScreenWidth() {
-        return TitleLayoutLib.getContext().getResources().getDisplayMetrics().widthPixels;
+    public static int getScreenWidth(Context context) {
+        return context.getResources().getDisplayMetrics().widthPixels;
     }
 
     /**
@@ -78,28 +71,28 @@ public class ScreenUtil {
      *
      * @return 屏幕高
      */
-    public static int getScreenHeight() {
-        return TitleLayoutLib.getContext().getResources().getDisplayMetrics().heightPixels;
+    public static int getScreenHeight(Context context) {
+        return context.getResources().getDisplayMetrics().heightPixels;
     }
 
     /**
      * @return 获取屏幕的宽 单位：dp
      */
-    public static int getScreenWidthDp() {
-        WindowManager windowManager = (WindowManager) TitleLayoutLib.getContext().getSystemService(Context.WINDOW_SERVICE);
+    public static int getScreenWidthDp(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
-        return TransitionTools.px2dip(dm.widthPixels);
+        return TransitionTools.px2dip(context, dm.widthPixels);
     }
 
     /**
      * @return 获取屏幕的高 单位：dp
      */
-    public static int getScreenHeightDp() {
-        WindowManager windowManager = (WindowManager) TitleLayoutLib.getContext().getSystemService(Context.WINDOW_SERVICE);
+    public static int getScreenHeightDp(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
-        return TransitionTools.px2dip(dm.heightPixels);
+        return TransitionTools.px2dip(context, dm.heightPixels);
     }
 
     /**
@@ -107,7 +100,6 @@ public class ScreenUtil {
      * 需要设置的xml中增加属性：
      * android:clipToPadding="true"
      * android:fitsSystemWindows="true"
-     * 案例：sample/.../activity/ScreenActivity.java
      *
      * @param activity
      */
@@ -169,7 +161,7 @@ public class ScreenUtil {
      * @return 状态栏高度
      */
     public static int getStatusBarHeight() {
-        return getInternalDimensionSize(Resources.getSystem(), Constants.STATUS_BAR_HEIGHT_RES_NAME);
+        return getInternalDimensionSize(Resources.getSystem(), STATUS_BAR_HEIGHT_RES_NAME);
     }
 
     private static int getInternalDimensionSize(Resources res, String key) {
@@ -254,8 +246,8 @@ public class ScreenUtil {
      *
      * @return {@code true}: 是<br>{@code false}: 否
      */
-    public static boolean isLandscape() {
-        return TitleLayoutLib.getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+    public static boolean isLandscape(Context context) {
+        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
     /**
@@ -263,8 +255,8 @@ public class ScreenUtil {
      *
      * @return {@code true}: 是<br>{@code false}: 否
      */
-    public static boolean isPortrait() {
-        return TitleLayoutLib.getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
+    public static boolean isPortrait(Context context) {
+        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
     }
 
     /**
@@ -329,8 +321,8 @@ public class ScreenUtil {
      *
      * @return {@code true}: 是<br>{@code false}: 否
      */
-    public static boolean isScreenLock() {
-        KeyguardManager km = (KeyguardManager) TitleLayoutLib.getContext().getSystemService(Context.KEYGUARD_SERVICE);
+    public static boolean isScreenLock(Context context) {
+        KeyguardManager km = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         return km.inKeyguardRestrictedInputMode();
     }
 
@@ -340,8 +332,8 @@ public class ScreenUtil {
      *
      * @param duration 时长
      */
-    public static void setSleepDuration(int duration) {
-        Settings.System.putInt(TitleLayoutLib.getContext().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, duration);
+    public static void setSleepDuration(Context context, int duration) {
+        Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, duration);
     }
 
     /**
@@ -349,9 +341,9 @@ public class ScreenUtil {
      *
      * @return 进入休眠时长，报错返回-123
      */
-    public static int getSleepDuration() {
+    public static int getSleepDuration(Context context) {
         try {
-            return Settings.System.getInt(TitleLayoutLib.getContext().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT);
+            return Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
             return -123;
