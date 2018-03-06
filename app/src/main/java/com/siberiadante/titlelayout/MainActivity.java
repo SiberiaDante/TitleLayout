@@ -2,8 +2,10 @@ package com.siberiadante.titlelayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.siberiadante.titlelayoutlib.TitleBarLayout;
+import com.siberiadante.titlelayoutlib.TitleLayoutListener;
 import com.siberiadante.titlelayoutlib.utils.ScreenUtil;
 
 public class MainActivity extends AppCompatActivity {
