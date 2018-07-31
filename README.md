@@ -6,9 +6,9 @@
 * [Github 地址：https://github.com/SibreiaDante]
 * [博客园:http://www.cnblogs.com/shen-hua/]
 ### [Android开发常备工具整理中]
-## Gradle依赖：
+## Gradle依赖[![](https://jitpack.io/v/SibreiaDante/SiberiaDanteLib.svg)](https://jitpack.io/#SibreiaDante/SiberiaDanteLib)：
 ```
-   compile 'com.github.SiberiaDante:TitleLayout:v1.1.0'
+   compile 'com.github.SiberiaDante:TitleLayout:v1.1.1'
 ```
 ## 图片有点虚，请见谅
 ![图片](/images/show_title.jpeg)
