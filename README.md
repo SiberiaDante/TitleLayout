@@ -4,6 +4,9 @@
 ## 堆码不易，star支持，万分感谢
 #### 欢迎关注：
 [博客园:http://www.cnblogs.com/shen-hua/](http://www.cnblogs.com/shen-hua/)
+
+[![](https://jitpack.io/v/SiberiaDante/TitleLayout.svg)](https://jitpack.io/#SiberiaDante/TitleLayout)
+
 ```
    compile 'com.github.SiberiaDante:TitleLayout:v1.1.1'
 ```
@@ -339,10 +342,10 @@
 
 
 ## 更新优化说明
-* v1.1.2(未发布)
+* v1.1.4(未发布)
     * 增加标题栏双击事件、单击事件回调
-* v1.1.1:(2018-07-31发布)
-    * 增加动态标题栏背景颜色
+* v1.1.3:(2018-08-01发布)
+    * 增加动态设置标题栏背景颜色
     * 增加设置左右视图是否可以点击
 * v1.1.0:
     * 增加支持Java代码设置所有控件显示隐藏
