@@ -38,10 +38,10 @@ import java.util.TimerTask;
  * 支持左侧返回按钮不需要手动实现页面返回；
  * 支持左侧按钮，中间标题，右边按钮点击
  * 左侧支持图片+文字、单独图片、单独文字；右侧支持单独图片、单独文字等。
- * @Time: 2017/9/12
- * @UpDate:
- * @Email: 994537867@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Time: 2017/9/12
+ * UpDate:
+ * Email: 994537867@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class TitleBarLayout extends RelativeLayout {
@@ -391,7 +391,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置title
      *
-     * @param title
      */
     public void setTitle(String title) {
         if (!StringUtil.isEmpty(title)) {
@@ -403,7 +402,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置标题大小
      *
-     * @param titleSize
      */
     public void setTitleSize(int titleSize) {
         if (titleSize != 0) {
@@ -414,7 +412,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置标题颜色
      *
-     * @param titleColor
      */
     public void setTitleColor(int titleColor) {
         if (titleColor != 0) {
@@ -425,9 +422,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 一键设置标题样式、资源等
      *
-     * @param title
-     * @param titleSize
-     * @param titleColor
      */
     public void setTitleStyle(String title, int titleSize, int titleColor) {
         this.mTitle = title;
@@ -439,7 +433,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置副title
      *
-     * @param subTitle
      */
     public void setSubTitle(String subTitle) {
         if (!StringUtil.isEmpty(subTitle)) {
@@ -451,7 +444,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置副标题大小
      *
-     * @param subTitleSize
      */
     public void setSubTitleSize(int subTitleSize) {
         if (subTitleSize != 0) {
@@ -465,7 +457,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置副标题颜色
      *
-     * @param subTitleColor
      */
     public void setSubTitleColor(int subTitleColor) {
         if (subTitleColor != 0) {
@@ -479,9 +470,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 一键设置副标题样式、资源等
      *
-     * @param subTitle
-     * @param subTitleSize
-     * @param subTitleColor
      */
     public void setSubTitleStyle(String subTitle, int subTitleSize, int subTitleColor) {
         this.mSubTitle = subTitle;
@@ -496,7 +484,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置左边文字内容
      *
-     * @param leftText
      */
     public void setLeftText(String leftText) {
         if (!StringUtil.isEmpty(leftText)) {
@@ -508,7 +495,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置左边文字大小
      *
-     * @param leftTextSize
      */
     public void setLeftTextSize(int leftTextSize) {
         if (leftTextSize != 0) {
@@ -519,7 +505,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置左边文字颜色
      *
-     * @param leftTextColor
      */
     public void setLeftTextColor(int leftTextColor) {
         if (leftTextColor != 0) {
@@ -530,9 +515,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 一键设置左侧文字样式、资源等
      *
-     * @param leftText
-     * @param leftTextSize
-     * @param leftTextColor
      */
     public void setLeftStyle(String leftText, int leftTextSize, int leftTextColor) {
 
@@ -547,7 +529,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置右侧文字
      *
-     * @param rightText
      */
     public void setRightText(String rightText) {
         if (!StringUtil.isEmpty(rightText)) {
@@ -559,7 +540,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置右侧文字大小
      *
-     * @param rightTextSize
      */
     public void setRightTextSize(int rightTextSize) {
         if (rightTextSize != 0) {
@@ -570,7 +550,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置右侧文字颜色
      *
-     * @param rightTextColor
      */
     public void setRightTextColor(int rightTextColor) {
         if (rightTextColor != 0) {
@@ -581,8 +560,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置右侧文字颜色
      *
-     * @param rightText
-     * @param rightTextColor
      */
     public void setRightText(String rightText, int rightTextColor) {
         if (!StringUtil.isEmpty(rightText) && rightTextColor != 0) {
@@ -595,9 +572,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置右侧文字
      *
-     * @param rightText
-     * @param rightTextSize
-     * @param rightTextColor
      */
     public void setRightTextStyle(String rightText, int rightTextSize, int rightTextColor) {
 
@@ -612,7 +586,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置左边图片资源
      *
-     * @param leftImageResId
      */
     public void setLeftImage(int leftImageResId) {
         this.mLeftImage = leftImageResId;
@@ -622,7 +595,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置右边图片资源
      *
-     * @param rightImageResId
      */
     public void setRightImage(int rightImageResId) {
         this.mRightImage = rightImageResId;
@@ -632,7 +604,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 1.0.1之后增加动态设置是否为沉浸式状态栏
      *
-     * @param isImmersiveStateBar
      */
     public void setIsImmersiveStateBar(boolean isImmersiveStateBar) {
         mIsImmersiveStateBar = isImmersiveStateBar;
@@ -652,7 +623,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 标题点击事件
      *
-     * @param listener
      */
     public void setTitleClickListener(OnClickListener listener) {
         mTvTitle.setOnClickListener(listener);
@@ -661,7 +631,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 副标题点击事件
      *
-     * @param listener
      */
     public void setSubTitleClickListener(OnClickListener listener) {
         mTvSubTitle.setOnClickListener(listener);
@@ -670,7 +639,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 左边按钮点击事件
      *
-     * @param listener
      */
     public void setLeftClickListener(OnClickListener listener) {
         mIvLeft.setOnClickListener(listener);
@@ -680,7 +648,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 右边文字按钮点击事件
      *
-     * @param listener
      */
     public void setRightTextClickListener(OnClickListener listener) {
         mTvRight.setOnClickListener(listener);
@@ -689,7 +656,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置左侧文字和按钮是否为返回按钮
      *
-     * @param isLeftBackView
      */
     public void setIsLeftBackView(boolean isLeftBackView) {
         mIsBackView = isLeftBackView;
@@ -731,7 +697,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 左侧返回按钮隐藏
      *
-     * @param visibility
      */
     public void setLeftBackViewVisible(int visibility) {
         mIvLeft.setVisibility(visibility);
@@ -740,7 +705,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置左侧文字显示隐藏
      *
-     * @param visibility
      */
     public void setLeftTextViewVisible(int visibility) {
         mTvLeft.setVisibility(visibility);
@@ -749,7 +713,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 右侧文字设置显示隐藏
      *
-     * @param visible
      */
     public void setRightTextViewVisible(int visible) {
         mTvRight.setVisibility(visible);
@@ -758,7 +721,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 右侧图标设置显示隐藏
      *
-     * @param visible
      */
     public void setRightImageViewVisible(int visible) {
         mIvRight.setVisibility(visible);
@@ -767,7 +729,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置标题显示隐藏
      *
-     * @param visible
      */
     public void setTitleVisible(int visible) {
         mTvTitle.setVisibility(visible);
@@ -776,7 +737,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置副标题显示隐藏
      *
-     * @param visible
      */
     public void setSubTitleVisible(int visible) {
         mTvSubTitle.setVisibility(visible);
@@ -785,7 +745,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置左侧文字是否可以点击
      *
-     * @param isClickable
      */
     public void setLeftTextClickable(boolean isClickable) {
         mTvLeft.setClickable(isClickable);
@@ -795,7 +754,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置左侧图片是否可以点击
      *
-     * @param isClickable
      */
     public void setLeftImageClickable(boolean isClickable) {
         mIvLeft.setClickable(isClickable);
@@ -805,7 +763,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置右侧文字是否可以点击
      *
-     * @param isClickable
      */
     public void setRightTextClickable(boolean isClickable) {
         mTvRight.setClickable(isClickable);
@@ -815,7 +772,6 @@ public class TitleBarLayout extends RelativeLayout {
     /**
      * 设置右侧图片是否可以点击
      *
-     * @param isClickable
      */
     public void setRightImageClickable(boolean isClickable) {
         mIvRight.setClickable(isClickable);

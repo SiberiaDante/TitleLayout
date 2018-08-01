@@ -17,9 +17,25 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+ext {
+    versionCode = 1
+    versionName = '1.0.0'
+
+//Sdk and tools
+    midSdkVersion = 17
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '27.0.0'
+
+    supportLibrary = '27.0.2'
+    constraint_layout = '1.0.2'
+
+
 }
