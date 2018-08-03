@@ -76,6 +76,7 @@
         dante:d_left_image="@mipmap/back_gray"
         dante:d_left_image_padding_start="10dp"
         dante:d_left_image_width="30dp"
+        dante:d_right_image_padding_end="10dp"
         dante:d_line_height="1px"
         dante:d_right_image="@mipmap/icon_collection"
         dante:d_subtitle_size="12sp"
