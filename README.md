@@ -8,7 +8,7 @@
 [![](https://jitpack.io/v/SiberiaDante/TitleLayout.svg)](https://jitpack.io/#SiberiaDante/TitleLayout)
 
 ```
-   compile 'com.github.SiberiaDante:TitleLayout:v1.1.1'
+   compile 'com.github.SiberiaDante:TitleLayout:v1.1.3'
 ```
 ![图片](/images/show_title.png)
 
