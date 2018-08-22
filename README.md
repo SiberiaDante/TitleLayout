@@ -106,6 +106,10 @@
             <td>左边图片左边距（默认10dp）</td>
         </tr>
         <tr>
+            <td>d_left_image_padding_end</td>
+            <td>左边图片右边距（默认10dp）</td>
+        </tr>
+        <tr>
             <td>d_left_text</td>
             <td>左边文字资源</td>
         </tr>
@@ -124,6 +128,10 @@
         <tr>
             <td>d_left_text_padding_start</td>
             <td>左边文字左边距（默认10dp）</td>
+        </tr>
+        <tr>
+            <td>d_left_text_padding_end</td>
+            <td>左边文字右边距（默认10dp）</td>
         </tr>
         <tr>
             <td>d_title_text</td>
@@ -178,6 +186,10 @@
             <td>右边文字距离右边距</td>
         </tr>
         <tr>
+            <td>d_right_text_padding_start</td>
+            <td>右边文字距离左边距</td>
+        </tr>
+        <tr>
             <td>d_right_image</td>
             <td>右边图片资源</td>
         </tr>
@@ -188,6 +200,10 @@
         <tr>
             <td>d_right_image_padding_end</td>
             <td>右边图片距离右边距</td>
+        </tr>
+        <tr>
+            <td>d_right_image_padding_start</td>
+            <td>右边图片距离左边距</td>
         </tr>
         <tr>
             <td>d_line_height</td>

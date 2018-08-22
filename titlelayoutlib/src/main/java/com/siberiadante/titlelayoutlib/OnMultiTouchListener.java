@@ -1,5 +1,8 @@
 package com.siberiadante.titlelayoutlib;
 
+import android.view.MotionEvent;
+import android.view.View;
+
 /**
  * Created: SiberiaDante
  * Email: 2654828081@qq.com
@@ -9,6 +12,10 @@ package com.siberiadante.titlelayoutlib;
  * UpDateTime:
  * Describe:
  */
-public class OnMultiTouchListener {
+public class OnMultiTouchListener implements View.OnTouchListener {
 
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return false;
+    }
 }
