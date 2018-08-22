@@ -10,7 +10,7 @@
 ```
    compile 'com.github.SiberiaDante:TitleLayout:v1.1.1'
 ```
-![图片](/images/show_title.jpeg)
+![图片](/images/show_title.png)
 
 ## 在布局中使用：
 ```
