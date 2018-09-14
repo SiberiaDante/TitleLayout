@@ -8,7 +8,7 @@
 [![](https://jitpack.io/v/SiberiaDante/TitleLayout.svg)](https://jitpack.io/#SiberiaDante/TitleLayout)
 
 ```
-   compile 'com.github.SiberiaDante:TitleLayout:v1.1.3'
+   compile 'com.github.SiberiaDante:TitleLayout:----'
 ```
 ![图片](/images/show_title.png)
 
@@ -360,6 +360,7 @@
 ## 更新优化说明
 * v1.1.4(未发布)
     * 增加标题栏双击事件、单击事件回调
+    * 修复丢失的右边图片点击事件
     * 修复设置左右图片Padding造成的问题
 * v1.1.3:(2018-08-01发布)
     * 增加动态设置标题栏背景颜色

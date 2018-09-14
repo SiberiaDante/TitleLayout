@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rl_title_bar_height"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sd_rl_title_bar_height"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/red">
 
     <LinearLayout
-        android:id="@+id/ll_center"
+        android:id="@+id/sd_ll_center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/sd_tv_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
@@ -26,7 +27,7 @@
             android:visibility="visible" />
 
         <TextView
-            android:id="@+id/tv_sub_title"
+            android:id="@+id/sd_tv_sub_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -37,59 +38,63 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_left"
+        android:id="@+id/sd_rl_left"
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/iv_left"
+            android:id="@+id/sd_iv_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingStart="10dp"
             android:src="@drawable/icon_back"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
-            android:id="@+id/tv_left"
+            android:id="@+id/sd_tv_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@id/iv_left"
+            android:layout_toEndOf="@id/sd_iv_left"
             android:gravity="center"
             android:paddingStart="10dp"
             android:text="返回"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:ignore="RtlSymmetry" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_right"
+        android:id="@+id/sd_rl_right"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true">
 
         <ImageView
-            android:id="@+id/iv_right"
+            android:id="@+id/sd_iv_right"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:paddingEnd="10dp"
             android:src="@drawable/icon_collection"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
-            android:id="@+id/tv_right"
+            android:id="@+id/sd_tv_right"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:paddingEnd="10dp"
             android:text="搜索"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:ignore="RtlSymmetry" />
     </RelativeLayout>
 
 
     <!--</LinearLayout>-->
 
     <View
-        android:id="@+id/view_line"
+        android:id="@+id/sd_view_line"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_alignParentBottom="true"
