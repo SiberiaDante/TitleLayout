@@ -353,7 +353,7 @@
         <tr>
             <td>setTitleLayoutBackground</td>
             <td>设置标题栏背景颜色</td>
-        </tr> 
+        </tr>
 </table>
 
 ## 问题
