@@ -303,6 +303,10 @@
             <td>标题点击监听</td>
         </tr>
         <tr>
+            <td>setTitleClickListener(OnMultiTouchListener listener)</td>
+            <td>设置标题单击/双击事件</td>
+        </tr>
+        <tr>
             <td>setLeftClickListener(OnClickListener listener)</td>
             <td>左侧文字和按钮点击监听</td>
         </tr>
@@ -349,7 +353,7 @@
         <tr>
             <td>setTitleLayoutBackground</td>
             <td>设置标题栏背景颜色</td>
-        </tr>
+        </tr> 
 </table>
 
 ## 问题
@@ -359,7 +363,7 @@
 
 ## 更新优化说明
 * v1.1.4(未发布)
-    * 增加标题栏双击事件、单击事件回调
+    * 增加标题栏双击事件、单击事件回调setTitleClickListener(OnMultiTouchListener listener)
     * 修复丢失的右边图片点击事件
     * 修复设置左右图片Padding造成的问题
 * v1.1.3:(2018-08-01发布)
