@@ -360,7 +360,6 @@
 * 设置字体颜色失真，请使用：ContextCompat.getColor(this,R.color.red)
 
 
-
 ## 更新优化说明
 * v1.1.4(未发布)
     * 增加标题栏双击事件、单击事件回调setTitleClickListener(OnMultiTouchListener listener)
