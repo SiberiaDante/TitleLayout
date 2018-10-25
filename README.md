@@ -362,7 +362,7 @@
 
 
 ## 更新优化说明
-* v1.1.4(未发布)
+* v1.1.4
     * 增加标题栏双击事件、单击事件回调setTitleClickListener(OnMultiTouchListener listener)
     * 修复丢失的右边图片点击事件
     * 修复设置左右图片Padding造成的问题
