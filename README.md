@@ -8,9 +8,8 @@
 [![](https://jitpack.io/v/SiberiaDante/TitleLayout.svg)](https://jitpack.io/#SiberiaDante/TitleLayout)
 
 ```
-   compile 'com.github.SiberiaDante:TitleLayout:----'
+   compile 'com.github.SiberiaDante:TitleLayout:----'//使用 AndroidUtilLib 库时 不需要再重复依赖此库，参考改文档使用即可
 ```
-> 使用 AndroidUtilLib 库时 不需要再重复依赖此库，参考改文档使用即可
 
 ![图片](/images/show_title.png)
 
